@@ -61,7 +61,22 @@ public class Labyrinthe {
 	public void setHauteur(int hauteur) {
 		this.hauteur = hauteur;
 	}
-	
+
+	/**
+	 * Methodes de deplacement du Pacman
+	 */
+	public void deplacerPacmanGauche() {
+		pacman.deplacerGauche();
+	}
+	public void deplacerPacmanDroite() {
+		pacman.deplacerDroite();
+	}
+	public void deplacerPacmanHaut() {
+		pacman.deplacerHaut();
+	}
+	public void deplacerPacmanBas() {
+		pacman.deplacerBas();
+	}
 	
 	
 }
