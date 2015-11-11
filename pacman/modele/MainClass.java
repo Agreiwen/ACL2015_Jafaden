@@ -12,7 +12,7 @@ public class MainClass {
 		Labyrinthe laby = new Labyrinthe(5, 5, pacman);
 		Modele m = new Modele(laby);
 		boolean exit = false;
-		
+		System.out.println("Pacman en ("+m.getCoordonneeLargeur()+","+m.getCoordonneeHauteur()+")\n");
 		while(!exit){
 			System.out.println("Ecrire commande (L/R/U/D/S) \n");
 			Scanner sc = new Scanner(System.in);

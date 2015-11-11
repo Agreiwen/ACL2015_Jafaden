@@ -26,6 +26,12 @@ public class Modele {
 		return (laby.getPacman().getLargeur()==0);
 	}
 	
+	public int getCoordonneeHauteur(){
+		return(laby.getPacman().getHauteur());
+	}
+	public int getCoordonneeLargeur(){
+		return(laby.getPacman().getLargeur());
+	}
 	
 	/**
 	 * Methodes de deplacement du Pacman
