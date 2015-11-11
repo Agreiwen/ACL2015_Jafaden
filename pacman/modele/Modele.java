@@ -23,7 +23,7 @@ public class Modele {
 	}
 	
 	public boolean murEnBas(){
-		return (laby.getPacman().getLargeur()==0);
+		return (laby.getPacman().getHauteur()==0);
 	}
 	
 	public int getCoordonneeHauteur(){
