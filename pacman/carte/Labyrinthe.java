@@ -78,5 +78,18 @@ public class Labyrinthe {
 		pacman.deplacerBas();
 	}
 	
-	
+	public String toString(){
+		StringBuilder st = new StringBuilder();
+		st.append("Labyrinthe : \n");
+		for (int i = 0; i < largeur; i++) {
+			for (int j = 0; j < hauteur; j++) {
+				if(i==pacman.getCoordonneex() && j==pacman.getCoordonneey()){
+					st.append("X");
+				}else st.append("0");
+			}
+			st.append("\n");
+		}
+		st.append("\n");
+		return st.toString();
+	}
 }
