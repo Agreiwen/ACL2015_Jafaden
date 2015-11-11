@@ -12,58 +12,42 @@ public class MainClass {
 		Labyrinthe laby = new Labyrinthe(5, 5, pacman);
 		Modele m = new Modele(laby);
 		boolean exit = false;
-		System.out.println("Pacman en ("+m.getCoordonneeLargeur()+","+m.getCoordonneeHauteur()+")\n");
 		while(!exit){
-			System.out.println("Ecrire commande (L/R/U/D/S) \n");
+			System.out.println("Ecrire commande (L/R/U/D/S)");
 			Scanner sc = new Scanner(System.in);
 			String entree = sc.nextLine();
-			
-			System.out.println(entree+"\n");
 			switch(entree){
 				case "L":
-					
 					if(!m.murAGauche()){
 						m.deplacerPacmanGauche();
 					}
-					//System.out.println("Pacman en ("+m.getCoordonneeLargeur()+","+m.getCoordonneeHauteur()+")\n");
-
-					//System.out.println(laby.toString());
 					break;
 				case "R":
-					
 					if(!m.murADroite()){
 						m.deplacerPacmanDroite();
 					}
-					
-					//System.out.println(laby.toString());
 					break;
 				case "U":
-					
 					if(!m.murEnHaut()){
 						m.deplacerPacmanHaut();
 					}
-					//System.out.println(laby.toString());
 					break;
 				case "D":
-					
 					if(!m.murEnBas()){
 						m.deplacerPacmanBas();
 					}
-					//System.out.println(laby.toString());
 					break;
 				case "S":
-					//System.out.println(laby.toString());
 					break;
 				default:
 					break;
 			}
 			System.out.println("Pacman en ("+m.getCoordonneeLargeur()+","+m.getCoordonneeHauteur()+")\n");
-			//sc.close();
+			System.out.println(laby.toString());
 		}
 	}
 
 	public static void main(String[] args) {
-		
 		new MainClass();
 	}
 	

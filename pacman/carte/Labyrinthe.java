@@ -81,7 +81,7 @@ public class Labyrinthe {
 	public String toString(){
 		StringBuilder st = new StringBuilder();
 		st.append("Labyrinthe : \n");
-		for (int i = 0; i < largeur; i++) {
+		for (int i = largeur-1; i >= 0; i--) {
 			for (int j = 0; j < hauteur; j++) {
 				if(j==pacman.getLargeur() && i==pacman.getHauteur()){
 					st.append("X");
