@@ -19,28 +19,32 @@ public class MainClass {
 			String entree = sc.nextLine();
 			switch(entree){
 				case "L":
-					System.out.println(laby.toString());
+					
 					if(!m.murAGauche()){
 						m.deplacerPacmanGauche();
 					}
+					System.out.println(laby.toString());
 					break;
 				case "R":
-					System.out.println(laby.toString());
+					
 					if(!m.murADroite()){
 						m.deplacerPacmanDroite();
 					}
+					System.out.println(laby.toString());
 					break;
 				case "U":
-					System.out.println(laby.toString());
+					
 					if(!m.murEnHaut()){
 						m.deplacerPacmanHaut();
 					}
+					System.out.println(laby.toString());
 					break;
 				case "D":
-					System.out.println(laby.toString());
+					
 					if(!m.murEnBas()){
 						m.deplacerPacmanBas();
 					}
+					System.out.println(laby.toString());
 					break;
 				case "S":
 					System.out.println(laby.toString());
