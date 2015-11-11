@@ -17,8 +17,8 @@ public class MainClass {
 			System.out.println("Ecrire commande (L/R/U/D/S) \n");
 			Scanner sc = new Scanner(System.in);
 			String entree = sc.nextLine();
-			System.out.println("Pacman en ("+m.getCoordonneeLargeur()+","+m.getCoordonneeHauteur()+")\n");
-
+			
+			System.out.println(entree+"\n");
 			switch(entree){
 				case "L":
 					
@@ -57,6 +57,7 @@ public class MainClass {
 				default:
 					break;
 			}
+			System.out.println("Pacman en ("+m.getCoordonneeLargeur()+","+m.getCoordonneeHauteur()+")\n");
 			//sc.close();
 		}
 	}
