@@ -3,43 +3,43 @@ package pacman.personnages;
 public class Pacman {
 
 	
-	private int coordonneex;
-	private int coordonneey;
+	private int largeur;
+	private int hauteur;
 	
-	public Pacman(int x, int y){
-		this.coordonneex = x;
-		this.coordonneey = y;
+	public Pacman(int largeur, int hauteur){
+		this.largeur = largeur;
+		this.hauteur = hauteur;
 		
 	}
 	
 	public void deplacerGauche(){
-		coordonneex--;
+		largeur--;
 	}
 	
 	public void deplacerDroite(){
-		coordonneex++;
+		largeur++;
 	}
 	public void deplacerHaut(){
-		coordonneey++;
+		hauteur++;
 	}
 	public void deplacerBas(){
-		coordonneey--;
+		hauteur--;
 	}
 	
 	public int getCoordonneex() {
-		return coordonneex;
+		return largeur;
 	}
 
 	public void setCoordonneex(int coordonneex) {
-		this.coordonneex = coordonneex;
+		this.largeur = coordonneex;
 	}
 
 	public int getCoordonneey() {
-		return coordonneey;
+		return hauteur;
 	}
 
 	public void setCoordonneey(int coordonneey) {
-		this.coordonneey = coordonneey;
+		this.hauteur = coordonneey;
 	}
 
 	
