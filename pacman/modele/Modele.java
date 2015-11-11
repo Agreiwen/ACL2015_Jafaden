@@ -11,19 +11,19 @@ public class Modele {
 	}
 	
 	public boolean murADroite(){
-		return (laby.getPacman().getCoordonneex()==laby.getLargeur()-1);
+		return (laby.getPacman().getLargeur()==laby.getLargeur()-1);
 	}
 	
 	public boolean murAGauche(){
-		return (laby.getPacman().getCoordonneex()==0);
+		return (laby.getPacman().getLargeur()==0);
 	}
 	
 	public boolean murEnHaut(){
-		return (laby.getPacman().getCoordonneey()==laby.getHauteur()-1);
+		return (laby.getPacman().getHauteur()==laby.getHauteur()-1);
 	}
 	
 	public boolean murEnBas(){
-		return (laby.getPacman().getCoordonneex()==0);
+		return (laby.getPacman().getLargeur()==0);
 	}
 	
 	

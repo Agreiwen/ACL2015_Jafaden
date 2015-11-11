@@ -17,12 +17,14 @@ public class MainClass {
 			System.out.println("Ecrire commande (L/R/U/D/S) \n");
 			Scanner sc = new Scanner(System.in);
 			String entree = sc.nextLine();
+			
 			switch(entree){
 				case "L":
 					
 					if(!m.murAGauche()){
 						m.deplacerPacmanGauche();
 					}
+					
 					System.out.println(laby.toString());
 					break;
 				case "R":

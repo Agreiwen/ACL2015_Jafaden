@@ -26,19 +26,19 @@ public class Pacman {
 		hauteur--;
 	}
 	
-	public int getCoordonneex() {
+	public int getLargeur() {
 		return largeur;
 	}
 
-	public void setCoordonneex(int coordonneex) {
+	public void setLargeur(int coordonneex) {
 		this.largeur = coordonneex;
 	}
 
-	public int getCoordonneey() {
+	public int getHauteur() {
 		return hauteur;
 	}
 
-	public void setCoordonneey(int coordonneey) {
+	public void setHauteur(int coordonneey) {
 		this.hauteur = coordonneey;
 	}
 
