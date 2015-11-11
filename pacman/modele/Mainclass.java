@@ -11,7 +11,6 @@ public class MainClass {
 		Pacman pacman = new Pacman(0, 0);
 		Labyrinthe laby = new Labyrinthe(5, 5, pacman);
 		Modele m = new Modele(laby);
-		
 		boolean exit = false;
 		
 		while(!exit){
@@ -20,36 +19,36 @@ public class MainClass {
 			String entree = sc.nextLine();
 			switch(entree){
 				case "L":
+					System.out.println(laby.toString());
 					if(!m.murAGauche()){
 						m.deplacerPacmanGauche();
-						System.out.println("L");
 					}
 					break;
 				case "R":
+					System.out.println(laby.toString());
 					if(!m.murADroite()){
 						m.deplacerPacmanDroite();
-						System.out.println("R");
 					}
 					break;
 				case "U":
+					System.out.println(laby.toString());
 					if(!m.murEnHaut()){
 						m.deplacerPacmanHaut();
-						System.out.println("U");
 					}
 					break;
 				case "D":
+					System.out.println(laby.toString());
 					if(!m.murEnBas()){
 						m.deplacerPacmanBas();
-						System.out.println("D");
 					}
 					break;
 				case "S":
-					System.out.println("S");
+					System.out.println(laby.toString());
 					break;
 				default:
 					break;
 			}
-			sc.close();
+			//sc.close();
 		}
 	}
 

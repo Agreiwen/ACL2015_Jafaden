@@ -83,7 +83,7 @@ public class Labyrinthe {
 		st.append("Labyrinthe : \n");
 		for (int i = 0; i < largeur; i++) {
 			for (int j = 0; j < hauteur; j++) {
-				if(i==pacman.getCoordonneex() && j==pacman.getCoordonneey()){
+				if(j==pacman.getCoordonneex() && i==pacman.getCoordonneey()){
 					st.append("X");
 				}else st.append("0");
 			}
