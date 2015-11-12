@@ -30,16 +30,16 @@ public class Pacman {
 		return largeur;
 	}
 
-	public void setLargeur(int coordonneex) {
-		this.largeur = coordonneex;
+	public void setLargeur(int coordonneHorizontale) {
+		this.largeur = coordonneHorizontale;
 	}
 
 	public int getHauteur() {
 		return hauteur;
 	}
 
-	public void setHauteur(int coordonneey) {
-		this.hauteur = coordonneey;
+	public void setHauteur(int coordonneVerticale) {
+		this.hauteur = coordonneVerticale;
 	}
 
 	
