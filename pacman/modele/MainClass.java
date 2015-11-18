@@ -9,8 +9,8 @@ public class MainClass {
 	
 	public MainClass(){
 		Pacman pacman = new Pacman(0, 0);
-		Labyrinthe laby = new Labyrinthe(5, 5, pacman);
-		Modele m = new Modele(laby);
+		Labyrinthe laby = new Labyrinthe(5, 5);
+		Jeu m = new Jeu(laby, pacman);
 		boolean exit = false;
 		while(!exit){
 			System.out.println("Ecrire commande (L/R/U/D/S)");
@@ -43,7 +43,7 @@ public class MainClass {
 					break;
 			}
 			System.out.println("Pacman en ("+m.getCoordonneeLargeur()+","+m.getCoordonneeHauteur()+")\n");
-			System.out.println(laby.toString());
+			System.out.println(m.toString());
 		}
 	}
 
