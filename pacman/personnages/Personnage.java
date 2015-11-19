@@ -1,5 +1,7 @@
 package pacman.personnages;
 
+import pacman.carte.Labyrinthe;
+
 public abstract class Personnage {
 
 	protected static int largeur;
@@ -16,7 +18,10 @@ public abstract class Personnage {
 		return largeur;
 	}
 
-
+	public int getLargeurGraphique() {
+		return largeur*Labyrinthe.LARGEUR_CASE;
+	}
+	
 	public void setLargeur(int largeur) {
 		this.largeur = largeur;
 	}
@@ -26,6 +31,9 @@ public abstract class Personnage {
 		return hauteur;
 	}
 
+	public int getHauteurGraphique() {
+		return hauteur*Labyrinthe.HAUTEUR_CASE;
+	}
 
 	public void setHauteur(int hauteur) {
 		this.hauteur = hauteur;
