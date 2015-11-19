@@ -1,4 +1,4 @@
-package pacman.modele;
+package pacman.graphique.model;
 
 import java.awt.event.KeyEvent;
 

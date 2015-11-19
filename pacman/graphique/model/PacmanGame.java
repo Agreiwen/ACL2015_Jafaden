@@ -1,11 +1,11 @@
-package pacman.model;
+package pacman.graphique.model;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-import engine.Cmd;
-import engine.Game;
+import pacman.graphique.engine.Cmd;
+import pacman.graphique.engine.Game;
 
 /**
  * @author Horatiu Cirstea, Vincent Thomas

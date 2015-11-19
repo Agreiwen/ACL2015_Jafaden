@@ -1,4 +1,4 @@
-package pacman.model;
+package pacman.graphique.model;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
