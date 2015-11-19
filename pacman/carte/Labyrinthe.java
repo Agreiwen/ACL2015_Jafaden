@@ -35,10 +35,14 @@ public class Labyrinthe {
 		return largeur;
 	}
 
-
-	public void setLargeur(int largeur) {
-		this.largeur = largeur;
+	public boolean estLibre(int largeur, int hauteur){
+		if (!(largeur < this.largeur) || !(hauteur < this.hauteur)){
+			return false;
+		}else{
+			return true;
+		}
 	}
+	
 
 
 	public int getHauteur() {
@@ -46,8 +50,5 @@ public class Labyrinthe {
 	}
 
 
-	public void setHauteur(int hauteur) {
-		this.hauteur = hauteur;
-	}
 
 }

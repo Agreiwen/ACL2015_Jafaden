@@ -21,6 +21,7 @@ public class Jeu {
 		this.pacman = pacman;
 	}
 	
+	
 	public boolean murADroite(){
 		return (pacman.getLargeur()==laby.getLargeur()-1);
 	}
