@@ -58,7 +58,7 @@ public class ModeleTest {
 		Labyrinthe l = new Labyrinthe(4,4);
 		Jeu m = new Jeu(l,p);
 		m.deplacerPacmanGauche();
-		assertEquals(0, m.getCoordonneeLargeur());
+		assertEquals(0, m.getLargeurPersonnage());
 	}
 
 	@Test
@@ -67,7 +67,7 @@ public class ModeleTest {
 		Labyrinthe l = new Labyrinthe(4,4);
 		Jeu m = new Jeu(l,p);
 		m.deplacerPacmanDroite();
-		assertEquals(2, m.getCoordonneeLargeur());
+		assertEquals(2, m.getLargeurPersonnage());
 	}
 
 	@Test

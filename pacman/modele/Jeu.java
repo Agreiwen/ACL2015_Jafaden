@@ -2,6 +2,7 @@ package pacman.modele;
 
 import pacman.carte.Labyrinthe;
 import pacman.personnages.Pacman;
+import pacman.personnages.Personnage;
 
 public class Jeu {
 	
@@ -26,27 +27,27 @@ public class Jeu {
 	}
 	
 	
-	public int getCoordonneeHauteur(){
-		return(pacman.getHauteur());
+	public int getHauteurPersonnage(Personnage p){
+		return(p.getHauteur());
 	}
-	public int getCoordonneeLargeur(){
-		return(pacman.getLargeur());
+	public int getLargeurPersonnage(Personnage p){
+		return(p.getLargeur());
 	}
 	
 	/**
-	 * Methodes de deplacement du Pacman
+	 * Methodes de deplacement d'un personnage
 	 */
-	public void deplacerPacmanGauche() {
-		pacman.deplacerGauche();
+	public void deplacerGauche(Personnage p) {
+		p.deplacerGauche();
 	}
-	public void deplacerPacmanDroite() {
-		pacman.deplacerDroite();
+	public void deplacerDroite(Personnage p) {
+		p.deplacerDroite();
 	}
-	public void deplacerPacmanHaut() {
-		pacman.deplacerHaut();
+	public void deplacerHaut(Personnage p) {
+		p.deplacerHaut();
 	}
-	public void deplacerPacmanBas() {
-		pacman.deplacerBas();
+	public void deplacerBas(Personnage p) {
+		p.deplacerBas();
 	}
 	
 	public String toString(){
