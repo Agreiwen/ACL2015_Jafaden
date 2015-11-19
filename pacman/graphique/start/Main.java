@@ -15,7 +15,7 @@ public class Main {
 
 	public static void main(String[] args) throws InterruptedException {
 		Pacman pacman = new Pacman(0, 0);
-		Labyrinthe laby = new Labyrinthe(5, 5);
+		Labyrinthe laby = new Labyrinthe(50, 50);
 		Jeu m = new Jeu(laby, pacman);
 		// creation du jeu particulier et de son afficheur
 		PacmanGame game = new PacmanGame("helpFilePacman.txt");

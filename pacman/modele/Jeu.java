@@ -44,16 +44,16 @@ public class Jeu implements Game{
 	
 	/* PROBLEME DE PROPOTIONS Tab/Laby graphique */
 	public void deplacerGauche(Personnage p) {
-		/*if(laby.estLibre(pacman.getLargeur()-1, pacman.getHauteur()))*/ p.deplacerGauche();
+		if(laby.estLibre(pacman.getLargeur()-1, pacman.getHauteur())) p.deplacerGauche();
 	}
 	public void deplacerDroite(Personnage p) {
-		/*if(laby.estLibre(pacman.getLargeur()+1, pacman.getHauteur())) */p.deplacerDroite();
+		if(laby.estLibre(pacman.getLargeur()+1, pacman.getHauteur()))p.deplacerDroite();
 	}
 	public void deplacerHaut(Personnage p) {
-		/*if(laby.estLibre(pacman.getLargeur(), pacman.getHauteur()+1))*/ p.deplacerHaut();
+		if(laby.estLibre(pacman.getLargeur(), pacman.getHauteur()+1)) p.deplacerHaut();
 	}
 	public void deplacerBas(Personnage p) {
-		/*if(laby.estLibre(pacman.getLargeur(), pacman.getHauteur()-1))*/ p.deplacerBas();
+		if(laby.estLibre(pacman.getLargeur(), pacman.getHauteur()-1)) p.deplacerBas();
 	}
 	
 	public String toString(){
