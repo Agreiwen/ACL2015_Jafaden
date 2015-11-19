@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 import pacman.graphique.engine.GamePainter;
+import pacman.personnages.Pacman;
 
 /**
  * @author Horatiu Cirstea, Vincent Thomas
@@ -19,6 +20,7 @@ public class PacmanPainter implements GamePainter {
 	 */
 	protected static final int WIDTH = 100;
 	protected static final int HEIGHT = 100;
+	Pacman pc;
 
 	/**
 	 * appelle constructeur parent
@@ -26,7 +28,8 @@ public class PacmanPainter implements GamePainter {
 	 * @param game
 	 *            le jeutest a afficher
 	 */
-	public PacmanPainter() {
+	public PacmanPainter(Pacman pc) {
+		this.pc=pc;
 	}
 
 	/**
@@ -36,7 +39,7 @@ public class PacmanPainter implements GamePainter {
 	public void draw(BufferedImage im) {
 		Graphics2D crayon = (Graphics2D) im.getGraphics();
 		crayon.setColor(Color.blue);
-		crayon.fillOval(0,0,10,10);
+		crayon.fillOval(pc.getLargeur(),pc.getHauteur(),10,10);
 	}
 
 	@Override

@@ -42,10 +42,10 @@ public abstract class Personnage {
 		largeur++;
 	}
 	public void deplacerHaut(){
-		hauteur++;
+		hauteur--;
 	}
 	public void deplacerBas(){
-		hauteur--;
+		hauteur++;
 	}
 	
 }

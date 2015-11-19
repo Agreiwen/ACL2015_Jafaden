@@ -1,10 +1,12 @@
 package pacman.modele;
 
 import pacman.carte.Labyrinthe;
+import pacman.graphique.engine.Cmd;
+import pacman.graphique.engine.Game;
 import pacman.personnages.Pacman;
 import pacman.personnages.Personnage;
 
-public class Jeu {
+public class Jeu implements Game{
 	
 	protected Labyrinthe laby;
 	protected Pacman pacman;
@@ -37,17 +39,21 @@ public class Jeu {
 	/**
 	 * Methodes de deplacement d'un personnage
 	 */
+	
+	
+	
+	/* PROBLEME DE PROPOTIONS Tab/Laby graphique */
 	public void deplacerGauche(Personnage p) {
-		p.deplacerGauche();
+		/*if(laby.estLibre(pacman.getLargeur()-1, pacman.getHauteur()))*/ p.deplacerGauche();
 	}
 	public void deplacerDroite(Personnage p) {
-		p.deplacerDroite();
+		/*if(laby.estLibre(pacman.getLargeur()+1, pacman.getHauteur())) */p.deplacerDroite();
 	}
 	public void deplacerHaut(Personnage p) {
-		p.deplacerHaut();
+		/*if(laby.estLibre(pacman.getLargeur(), pacman.getHauteur()+1))*/ p.deplacerHaut();
 	}
 	public void deplacerBas(Personnage p) {
-		p.deplacerBas();
+		/*if(laby.estLibre(pacman.getLargeur(), pacman.getHauteur()-1))*/ p.deplacerBas();
 	}
 	
 	public String toString(){
@@ -63,6 +69,43 @@ public class Jeu {
 		}
 		st.append("\n");
 		return st.toString();
+	}
+	
+	
+	
+	
+	
+	
+	/**
+	 * faire evoluer le jeu suite a une commande
+	 * 
+	 * @param commande
+	 */
+	@Override
+	public void evolve(Cmd commande) {
+		//System.out.println("Execute "+commande);
+		if(commande == Cmd.RIGHT){
+			deplacerDroite(pacman);
+		}
+		if(commande == Cmd.LEFT){
+			deplacerGauche(pacman);
+		}
+		if(commande == Cmd.DOWN){
+			deplacerBas(pacman);
+		}
+		if(commande == Cmd.UP){
+			deplacerHaut(pacman);
+		}
+		System.out.println(pacman.getLargeur()+" "+pacman.getHauteur());
+	}
+
+	/**
+	 * verifier si le jeu est fini
+	 */
+	@Override
+	public boolean isFinished() {
+		// le jeu n'est jamais fini
+		return false;
 	}
 
 }
