@@ -96,7 +96,7 @@ public class Jeu implements Game{
 		if(commande == Cmd.UP){
 			deplacerHaut(pacman);
 		}
-		System.out.println(pacman.getLargeur()+" "+pacman.getHauteur());
+		//System.out.println(pacman.getLargeur()+" "+pacman.getHauteur());
 	}
 
 	/**
