@@ -35,17 +35,17 @@ public abstract class Personnage {
 	/* Methodes de deplacement */
 	
 	public void deplacerGauche(){
-		largeur--;
+		largeur-=10;
 	}
 	
 	public void deplacerDroite(){
-		largeur++;
+		largeur+=10;
 	}
 	public void deplacerHaut(){
-		hauteur--;
+		hauteur-=10;
 	}
 	public void deplacerBas(){
-		hauteur++;
+		hauteur+=10;
 	}
 	
 }
