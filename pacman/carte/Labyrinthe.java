@@ -36,7 +36,7 @@ public class Labyrinthe {
 	}
 
 	public boolean estLibre(int largeur, int hauteur){
-		if (!(largeur < this.largeur) || !(hauteur < this.hauteur)){
+		if (!(largeur < this.largeur) || !(hauteur < this.hauteur) || !(largeur > -1) || !(hauteur > -1)){
 			return false;
 		}else{
 			return true;

@@ -53,6 +53,7 @@ public class PacmanController implements GameController {
 			break;
 		case 'z':
 			this.commandeEnCours = Cmd.UP;
+			break;
 		default:
 			this.commandeEnCours = Cmd.IDLE;
 		}
