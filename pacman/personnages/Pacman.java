@@ -1,46 +1,12 @@
 package pacman.personnages;
 
-public class Pacman {
+public class Pacman extends Personnage{
 
 	
-	private int largeur;
-	private int hauteur;
-	
-	public Pacman(int largeur, int hauteur){
-		this.largeur = largeur;
-		this.hauteur = hauteur;
-		
+	public Pacman(int l, int h){
+		super(largeur, hauteur);
 	}
 	
-	public void deplacerGauche(){
-		largeur--;
-	}
-	
-	public void deplacerDroite(){
-		largeur++;
-	}
-	public void deplacerHaut(){
-		hauteur++;
-	}
-	public void deplacerBas(){
-		hauteur--;
-	}
-	
-	public int getLargeur() {
-		return largeur;
-	}
-
-	public void setLargeur(int coordonneHorizontale) {
-		this.largeur = coordonneHorizontale;
-	}
-
-	public int getHauteur() {
-		return hauteur;
-	}
-
-	public void setHauteur(int coordonneVerticale) {
-		this.hauteur = coordonneVerticale;
-	}
 
 	
 }
