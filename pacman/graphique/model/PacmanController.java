@@ -1,9 +1,9 @@
-package model;
+package pacman.modele;
 
 import java.awt.event.KeyEvent;
 
-import engine.Cmd;
-import engine.GameController;
+import pacman.graphique.engine.Cmd;
+import pacman.graphique.engine.GameController;
 
 
 /**

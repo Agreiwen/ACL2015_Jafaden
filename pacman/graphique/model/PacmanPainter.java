@@ -1,10 +1,10 @@
-package model;
+package pacman.model;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import engine.GamePainter;
+import pacman.graphique.engine.GamePainter;
 
 /**
  * @author Horatiu Cirstea, Vincent Thomas

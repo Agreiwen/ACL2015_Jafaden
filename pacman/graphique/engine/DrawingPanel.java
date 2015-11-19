@@ -1,4 +1,4 @@
-package engine;
+package pacman.graphique.engine;
 
 /**
  * @author Horatiu Cirstea, Vincent Thomas

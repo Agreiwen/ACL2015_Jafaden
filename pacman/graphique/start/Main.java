@@ -1,9 +1,9 @@
-package start;
+package pacman.graphique.start;
 
-import model.PacmanPainter;
-import engine.GameEngineGraphical;
-import model.PacmanController;
-import model.PacmanGame;
+import pacman.graphique.engine.GameEngineGraphical;
+import pacman.graphique.model.PacmanController;
+import pacman.graphique.model.PacmanGame;
+import pacman.graphique.model.PacmanPainter;
 
 /**
  * lancement du moteur avec le jeu

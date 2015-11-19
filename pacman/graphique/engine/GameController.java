@@ -1,4 +1,4 @@
-package engine;
+package pacman.graphique.engine;
 
 import java.awt.event.KeyListener;
 
