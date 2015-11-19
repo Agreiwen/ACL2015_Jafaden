@@ -21,22 +21,10 @@ public class Jeu {
 		this.pacman = pacman;
 	}
 	
-	
-	public boolean murADroite(){
-		return (pacman.getLargeur()==laby.getLargeur()-1);
+	public boolean caseLibre(int poslargeur, int poshauteur){
+		return laby.estLibre(poslargeur, poshauteur);
 	}
 	
-	public boolean murAGauche(){
-		return (pacman.getLargeur()==0);
-	}
-	
-	public boolean murEnHaut(){
-		return (pacman.getHauteur()==laby.getHauteur()-1);
-	}
-	
-	public boolean murEnBas(){
-		return (pacman.getHauteur()==0);
-	}
 	
 	public int getCoordonneeHauteur(){
 		return(pacman.getHauteur());
