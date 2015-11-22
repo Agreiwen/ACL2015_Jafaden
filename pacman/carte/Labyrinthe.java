@@ -4,9 +4,13 @@ import pacman.personnages.Pacman;
 
 public class Labyrinthe {
 
+	public static final int NB_COLONNE = 20;
+	public static final int NB_LIGNE = 20;
 	protected int[][] grille;
 	protected int largeur;
 	protected int hauteur;
+	public static int LARGEUR_CASE = 25;
+	public static int HAUTEUR_CASE = 25;
 	
 	//protected Pacman pacman;
 	
@@ -36,11 +40,17 @@ public class Labyrinthe {
 	}
 
 	public boolean estLibre(int largeur, int hauteur){
-		if (!(largeur < this.largeur) || !(hauteur < this.hauteur) || !(largeur > -1) || !(hauteur > -1)){
-			return false;
-		}else{
-			return true;
+		boolean rep = true;
+		if(largeur < 0)
+			rep = false;
+		else if((largeur >= (NB_COLONNE))){
+			rep = false;
+		}else if((hauteur < 0)){
+			rep = false;
+		}else if((hauteur >= (NB_LIGNE))){
+			rep = false;
 		}
+		return rep;
 	}
 	
 
