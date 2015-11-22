@@ -1,96 +1,301 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.1.9" icons="false" always-add-relationships="false" generalizations="true" realizations="true" 
-  associations="true" dependencies="false" nesting-relationships="false" router="FAN">  
-  <class id="1" language="java" name="pacman.modele.MainClass" project="Pacman" 
-    file="/Pacman/src/pacman/modele/MainClass.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="125" y="78"/>    
-    <display autosize="false" stereotype="false" package="false" initial-value="true" signature="false" 
-      sort-features="false" accessors="true" visibility="false">      
+<class-diagram version="1.1.9" icons="false" always-add-relationships="false" generalizations="false" 
+  realizations="false" associations="true" dependencies="false" nesting-relationships="false" router="FAN">  
+  <interface id="1" language="java" name="pacman.graphique.engine.GamePainter" project="Pacman" 
+    file="/Pacman/src/pacman/graphique/engine/GamePainter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="144" x="1396" y="979"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
-  </class>  
+  </interface>  
   <class id="2" language="java" name="pacman.carte.Case" project="Pacman" file="/Pacman/src/pacman/carte/Case.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="102" y="237"/>    
-    <display autosize="false" stereotype="false" package="false" initial-value="true" signature="false" 
-      sort-features="false" accessors="true" visibility="false">      
+    <position height="48" width="49" x="448" y="235"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="pacman.personnages.Monstres" project="Pacman" 
+  <enumeration id="3" language="java" name="pacman.graphique.engine.Cmd" project="Pacman" 
+    file="/Pacman/src/pacman/graphique/engine/Cmd.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="128" width="75" x="2165" y="547"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="4" language="java" name="pacman.personnages.Monstres" project="Pacman" 
     file="/Pacman/src/pacman/personnages/Monstres.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="112" y="301"/>    
-    <display autosize="false" stereotype="false" package="false" initial-value="true" signature="false" 
-      sort-features="false" accessors="true" visibility="false">      
+    <position height="48" width="69" x="537" y="235"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="pacman.personnages.Pacman" project="Pacman" 
+  <class id="5" language="java" name="pacman.graphique.engine.GameEngineGraphical" project="Pacman" 
+    file="/Pacman/src/pacman/graphique/engine/GameEngineGraphical.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="128" width="298" x="1396" y="235"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="pacman.graphique.start.Main" project="Pacman" 
+    file="/Pacman/src/pacman/graphique/start/Main.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="64" width="103" x="646" y="235"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="7" language="java" name="pacman.graphique.engine.GameController" project="Pacman" 
+    file="/Pacman/src/pacman/graphique/engine/GameController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="48" width="110" x="975" y="547"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="8" language="java" name="pacman.graphique.engine.GraphicalInterface" project="Pacman" 
+    file="/Pacman/src/pacman/graphique/engine/GraphicalInterface.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="250" x="1125" y="547"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="pacman.graphique.engine.DrawingPanel" project="Pacman" 
+    file="/Pacman/src/pacman/graphique/engine/DrawingPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="176" width="154" x="1221" y="763"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="10" language="java" name="pacman.graphique.engine.Game" project="Pacman" 
+    file="/Pacman/src/pacman/graphique/engine/Game.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="64" width="113" x="1436" y="547"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="11" language="java" name="pacman.personnages.Personnage" project="Pacman" 
+    file="/Pacman/src/pacman/personnages/Personnage.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="208" width="127" x="789" y="235"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="pacman.personnages.Pacman" project="Pacman" 
     file="/Pacman/src/pacman/personnages/Pacman.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="289" y="256"/>    
-    <display autosize="false" stereotype="false" package="false" initial-value="true" signature="false" 
-      sort-features="false" accessors="true" visibility="false">      
+    <position height="48" width="87" x="1903" y="547"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="pacman.carte.CasesSpeciales" project="Pacman" 
+  <class id="13" language="java" name="pacman.carte.CasesSpeciales" project="Pacman" 
     file="/Pacman/src/pacman/carte/CasesSpeciales.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="729" y="58"/>    
-    <display autosize="false" stereotype="false" package="false" initial-value="true" signature="false" 
-      sort-features="false" accessors="true" visibility="false">      
+    <position height="48" width="102" x="956" y="235"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="pacman.modele.Jeu" project="Pacman" file="/Pacman/src/pacman/modele/Jeu.java" 
+  <class id="14" language="java" name="pacman.modele.Jeu" project="Pacman" file="/Pacman/src/pacman/modele/Jeu.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="447" y="186"/>    
-    <display autosize="false" stereotype="false" package="false" initial-value="true" signature="false" 
-      sort-features="false" accessors="true" visibility="false">      
+    <position height="272" width="207" x="1734" y="235"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="pacman.carte.CasesNormales" project="Pacman" 
+  <class id="15" language="java" name="pacman.carte.CasesNormales" project="Pacman" 
     file="/Pacman/src/pacman/carte/CasesNormales.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="614" y="58"/>    
-    <display autosize="false" stereotype="false" package="false" initial-value="true" signature="false" 
-      sort-features="false" accessors="true" visibility="false">      
+    <position height="48" width="100" x="1098" y="235"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="pacman.carte.Labyrinthe" project="Pacman" 
+  <class id="16" language="java" name="pacman.graphique.model.PacmanController" project="Pacman" 
+    file="/Pacman/src/pacman/graphique/model/PacmanController.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="128" width="155" x="2165" y="235"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="pacman.carte.Labyrinthe" project="Pacman" 
     file="/Pacman/src/pacman/carte/Labyrinthe.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="635" y="292"/>    
-    <display autosize="false" stereotype="false" package="false" initial-value="true" signature="false" 
-      sort-features="false" accessors="true" visibility="false">      
+    <position height="176" width="129" x="1734" y="547"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="9">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="10" name="laby"/>      
-      <multiplicity id="11" minimum="0" maximum="1"/>    
+  <class id="18" language="java" name="pacman.graphique.model.PacmanGame" project="Pacman" 
+    file="/Pacman/src/pacman/graphique/model/PacmanGame.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="80" width="118" x="1238" y="235"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="pacman.graphique.model.PacmanPainter" project="Pacman" 
+    file="/Pacman/src/pacman/graphique/model/PacmanPainter.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="144" width="144" x="1981" y="235"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="20">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="21" name="pc">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="22" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="23">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="24" name="commandeEnCours">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="25" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="27" name="pacman">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="28" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="29">    
+    <bendpoint x="1405" y="547"/>    
+    <bendpoint x="1405" y="763"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="30" name="gamePainter">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="31" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="32">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="33" name="gameController">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="34" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="36" name="laby">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="37" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="38">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="39" name="gui">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="40" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="8" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
-  <association id="12">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="13" name="pacman"/>      
-      <multiplicity id="14" minimum="0" maximum="1"/>    
+  <association id="41">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="42" name="painter">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="43" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
-  <classifier-display autosize="false" stereotype="false" package="false" initial-value="true" signature="false" 
-    sort-features="false" accessors="true" visibility="false">    
+  <association id="44">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="45" name="panel">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="46" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="47">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="48" name="game">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="49" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
     <operations public="true" package="true" protected="true" private="true" static="true"/>  
   </classifier-display>  

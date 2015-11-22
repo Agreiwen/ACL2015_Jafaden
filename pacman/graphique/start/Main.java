@@ -18,7 +18,7 @@ public class Main {
 		Labyrinthe laby = new Labyrinthe(5, 5);
 		Jeu m = new Jeu(laby, pacman);
 		// creation du jeu particulier et de son afficheur
-		PacmanGame game = new PacmanGame("helpFilePacman.txt");
+		PacmanGame game = new PacmanGame("src/helpFilePacman.txt");
 		PacmanPainter painter = new PacmanPainter(pacman);
 		PacmanController controller = new PacmanController();
 
