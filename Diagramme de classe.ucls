@@ -120,7 +120,7 @@
   </class>  
   <class id="14" language="java" name="pacman.modele.Jeu" project="Pacman" file="/Pacman/src/pacman/modele/Jeu.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="272" width="207" x="1734" y="235"/>    
+    <position height="-1" width="-1" x="1838" y="370"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -147,7 +147,7 @@
   </class>  
   <class id="17" language="java" name="pacman.carte.Labyrinthe" project="Pacman" 
     file="/Pacman/src/pacman/carte/Labyrinthe.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="176" width="129" x="1734" y="547"/>    
+    <position height="-1" width="-1" x="1798" y="676"/>    
     <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -173,77 +173,75 @@
     </display>  
   </class>  
   <association id="20">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="21" name="pc">        
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="21" name="commandeEnCours">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="22" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="false" multiplicity="true"/>  
-  </association>  
-  <association id="23">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="24" name="commandeEnCours">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="25" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
-  <association id="26">    
+  <association id="23">    
     <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="27" name="pacman">        
+      <attribute id="24" name="laby">        
+        <position height="0" width="0" x="0" y="41"/>      
+      </attribute>      
+      <multiplicity id="25" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="41"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="27" name="painter">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="28" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <association id="29">    
-    <bendpoint x="1405" y="547"/>    
-    <bendpoint x="1405" y="763"/>    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="30" name="gamePainter">        
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="30" name="pc">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="31" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <association id="32">    
     <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="33" name="gameController">        
+      <attribute id="33" name="game">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="34" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
+    <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <association id="35">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="36" name="laby">        
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="36" name="gameController">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="37" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
+    <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <association id="38">    
@@ -259,39 +257,41 @@
     <display labels="false" multiplicity="true"/>  
   </association>  
   <association id="41">    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="42" name="painter">        
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="42" name="pacman">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="43" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <association id="44">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="45" name="panel">        
+    <bendpoint x="1405" y="547"/>    
+    <bendpoint x="1405" y="763"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="45" name="gamePainter">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="46" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <association id="47">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="48" name="game">        
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="48" name="panel">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="49" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="false" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
