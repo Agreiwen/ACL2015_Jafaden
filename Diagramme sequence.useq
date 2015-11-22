@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence-diagram version="1.1.9" icons="true">  
+  <object id="1" language="java" name="pacman.graphique.start.Main" project="Pacman" 
+    file="/Pacman/src/pacman/graphique/start/Main.java" binary="false" label="main" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="231" y="0"/>    
+    <execution id="2">      
+      <position height="63" width="0" x="0" y="95"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="pacman.graphique.engine.GameEngineGraphical" project="Pacman" 
+    file="/Pacman/src/pacman/graphique/engine/GameEngineGraphical.java" binary="false" label="gameEngineGraphical" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="4">      
+      <position height="21" width="0" x="0" y="116"/>    
+    </execution>    
+    <execution id="6">      
+      <position height="63" width="0" x="0" y="161"/>    
+    </execution>    
+    <execution id="9">      
+      <position height="63" width="0" x="0" y="257"/>    
+    </execution>    
+    <execution id="12">      
+      <position height="63" width="0" x="0" y="610"/>    
+    </execution>  
+  </object>  
+  <object id="15" language="java" name="pacman.graphique.model.PacmanController" project="Pacman" 
+    file="/Pacman/src/pacman/graphique/model/PacmanController.java" binary="false" label="pacmanController" type="class" 
+    autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="8">      
+      <position height="21" width="0" x="0" y="182"/>    
+    </execution>  
+  </object>  
+  <object id="16" language="java" name="pacman.modele.Jeu" project="Pacman" file="/Pacman/src/pacman/modele/Jeu.java" 
+    binary="false" label="jeu" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="11">      
+      <position height="21" width="0" x="0" y="278"/>    
+    </execution>    
+    <execution id="17">      
+      <position height="84" width="0" x="0" y="321"/>    
+    </execution>    
+    <execution id="19">      
+      <position height="21" width="0" x="0" y="363"/>    
+    </execution>    
+    <execution id="20">      
+      <position height="63" width="0" x="0" y="427"/>    
+    </execution>  
+  </object>  
+  <object id="23" language="java" name="pacman.personnages.Personnage" project="Pacman" 
+    file="/Pacman/src/pacman/personnages/Personnage.java" binary="false" label="personnage" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="22">      
+      <position height="21" width="0" x="0" y="448"/>    
+    </execution>    
+    <execution id="24">      
+      <position height="84" width="0" x="0" y="497"/>    
+    </execution>    
+    <execution id="26">      
+      <position height="21" width="0" x="0" y="539"/>    
+    </execution>  
+  </object>  
+  <object id="27" language="java" name="pacman.graphique.engine.GraphicalInterface" project="Pacman" 
+    file="/Pacman/src/pacman/graphique/engine/GraphicalInterface.java" binary="false" label="graphicalInterface" 
+    type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="14">      
+      <position height="21" width="0" x="0" y="631"/>    
+    </execution>  
+  </object>  
+  <message id="3" operation="run():void" asynchronous="false">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </message>  
+  <message id="7" operation="getCommand():pacman.graphique.engine.Cmd" asynchronous="false">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="8"/>  
+  </message>  
+  <message id="10" operation="evolve(pacman.graphique.engine.Cmd):void" asynchronous="false">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="11"/>  
+  </message>  
+  <message id="13" operation="paint():void" asynchronous="false">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="14"/>  
+  </message>  
+  <message id="18" operation="deplacerDroite(pacman.personnages.Personnage):void" asynchronous="false">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="19"/>  
+  </message>  
+  <message id="21" operation="deplacerDroite():void" asynchronous="false">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="22"/>  
+  </message>  
+  <message id="25" operation="deplacerDroite():void" asynchronous="false">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="26"/>  
+  </message>
+</sequence-diagram>

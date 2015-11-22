@@ -1,0 +1,5 @@
+Les touches à utiliser :
+-q : Aller à gauche
+-d : Aller à droite
+-s : Aller en bas
+-z : Aller en haut
