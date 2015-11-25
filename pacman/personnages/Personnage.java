@@ -4,8 +4,8 @@ import pacman.carte.Labyrinthe;
 
 public abstract class Personnage {
 
-	protected static int largeur;
-	protected static int hauteur;
+	protected int largeur;
+	protected int hauteur;
 	
 	
 	public Personnage(int largeur, int hauteur){

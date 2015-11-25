@@ -10,7 +10,7 @@ import pacman.carte.Labyrinthe;
 import pacman.modele.Jeu;
 import pacman.personnages.Pacman;
 
-public class ModeleTest {
+public class JeuTest {
 
 	@Before
 	public void setUp() throws Exception {
@@ -21,62 +21,47 @@ public class ModeleTest {
 	}
 
 	@Test
-	public void testMurADroite() {
+	public void testCaseLibre() {
 		Pacman p = new Pacman(3, 0);
 		Labyrinthe l = new Labyrinthe(4, 4);
 		Jeu m = new Jeu(l,p);
+		assertEquals(false, m.caseLibre(-1, 0));
+		assertEquals(false, m.caseLibre(0, 4));
+		assertEquals(true, m.caseLibre(2, 2));
 		//assertEquals(true, m.murADroite());
 	}
 
 	@Test
-	public void testMurAGauche() {
-		Pacman p = new Pacman(0,0);
-		Labyrinthe l = new Labyrinthe(4,4);
-		Jeu m = new Jeu(l,p);
-		//assertEquals(true, m.murAGauche());
-	}
-
-	@Test
-	public void testMurEnHaut() {
-		Pacman p = new Pacman(0,3);
-		Labyrinthe l = new Labyrinthe(4,4);
-		Jeu m = new Jeu(l,p);
-		//assertEquals(true, m.murEnHaut());
-	}
-
-	@Test
-	public void testMurEnBas() {
-		Pacman p = new Pacman(0,0);
-		Labyrinthe l = new Labyrinthe(4,4);
-		Jeu m = new Jeu(l,p);
-		//assertEquals(true, m.murEnBas());
-	}
-
-	@Test
 	public void testDeplacerPacmanGauche() {
-		Pacman p = new Pacman(0,0);
+		Pacman p = new Pacman(1,0);
 		Labyrinthe l = new Labyrinthe(4,4);
 		Jeu m = new Jeu(l,p);
-		//m.deplacerPacmanGauche();
-		//assertEquals(0, m.getLargeurPersonnage());
+		m.deplacerGauche(p);
+		assertEquals(0, p.getLargeur());
+		m.deplacerGauche(p);
+		assertEquals(0, p.getLargeur());
 	}
 
 	@Test
 	public void testDeplacerPacmanDroite() {
-		Pacman p = new Pacman(1,1);
+		Pacman p = new Pacman(2,2);
 		Labyrinthe l = new Labyrinthe(4,4);
 		Jeu m = new Jeu(l,p);
-		//m.deplacerPacmanDroite();
-		//assertEquals(2, m.getLargeurPersonnage());
+		m.deplacerDroite(p);
+		assertEquals(3, p.getLargeur());
+		m.deplacerDroite(p);
+		assertEquals(3, p.getLargeur());
 	}
 
 	@Test
 	public void testDeplacerPacmanBas() {
-		Pacman p = new Pacman(1,1);
+		Pacman p = new Pacman(1,2);
 		Labyrinthe l = new Labyrinthe(4,4);
 		Jeu m = new Jeu(l,p);
-		//m.deplacerPacmanBas();
-		//assertEquals(0, m.getCoordonneeHauteur());
+		m.deplacerBas(p);
+		assertEquals(3, p.getHauteur());
+		m.deplacerBas(p);
+		assertEquals(3, p.getHauteur());
 	}
 
 	@Test
@@ -84,8 +69,12 @@ public class ModeleTest {
 		Pacman p = new Pacman(1,1);
 		Labyrinthe l = new Labyrinthe(4,4);
 		Jeu m = new Jeu(l,p);
-		//m.deplacerPacmanHaut();
-		//assertEquals(2, m.getCoordonneeHauteur());
+		m.deplacerHaut(p);
+		assertEquals(0, p.getHauteur());
+		m.deplacerHaut(p);
+		assertEquals(0, p.getHauteur());
 	}
+	
+	
 
 }

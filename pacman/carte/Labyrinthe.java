@@ -43,11 +43,11 @@ public class Labyrinthe {
 		boolean rep = true;
 		if(largeur < 0)
 			rep = false;
-		else if((largeur >= (NB_COLONNE))){
+		else if((largeur >= (this.largeur))){
 			rep = false;
 		}else if((hauteur < 0)){
 			rep = false;
-		}else if((hauteur >= (NB_LIGNE))){
+		}else if((hauteur >= (this.hauteur))){
 			rep = false;
 		}
 		return rep;

@@ -4,7 +4,7 @@ public class Pacman extends Personnage{
 
 	
 	public Pacman(int l, int h){
-		super(largeur, hauteur);
+		super(l, h);
 	}
 	
 
