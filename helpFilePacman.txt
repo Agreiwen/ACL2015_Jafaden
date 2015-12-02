@@ -1,5 +1,5 @@
 Projet Pacman (ACL2015_Jafaden) :
-( Run le Main.java en UTF-8 pour voir les flèches : Dans Run configuration / Common / Onglet Encoding : Other : UTF-8 ).
+( Run le Main.java en UTF-8 pour voir les flèches : Dans Run configuration / Onglet Common / Encoding : Other : UTF-8 ).
 
                      ↑ Aller en haut 
 ← Aller à gauche                         → Aller à droite
