@@ -45,19 +45,19 @@ public class Jeu implements Game{
 	
 	/* PROBLEME DE PROPOTIONS Tab/Laby graphique */
 	public void deplacerGauche(Personnage p) {
-		if(laby.estLibre(p.getLargeur()-1, p.getHauteur())) p.deplacerGauche();
+		if(caseLibre(p.getLargeur()-1, p.getHauteur())) p.deplacerGauche();
 	}
 	
 	public void deplacerDroite(Personnage p) {
-		if(laby.estLibre(p.getLargeur()+1, p.getHauteur()))p.deplacerDroite();
+		if(caseLibre(p.getLargeur()+1, p.getHauteur()))p.deplacerDroite();
 	}
 	
 	public void deplacerHaut(Personnage p) {
-		if(laby.estLibre(p.getLargeur(), p.getHauteur()-1)) p.deplacerHaut();
+		if(caseLibre(p.getLargeur(), p.getHauteur()-1)) p.deplacerHaut();
 	}
 	
 	public void deplacerBas(Personnage p) {
-		if(laby.estLibre(p.getLargeur(), p.getHauteur()+1)) p.deplacerBas();
+		if(caseLibre(p.getLargeur(), p.getHauteur()+1)) p.deplacerBas();
 	}
 	
 	public String toString(){
