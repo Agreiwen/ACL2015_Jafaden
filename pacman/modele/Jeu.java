@@ -1,5 +1,12 @@
 package pacman.modele;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
 import pacman.carte.Labyrinthe;
 import pacman.graphique.engine.Cmd;
 import pacman.graphique.engine.Game;
@@ -11,9 +18,51 @@ public class Jeu implements Game{
 	protected Labyrinthe laby;
 	protected Pacman pacman;
 	
-	public Jeu(Labyrinthe laby, Pacman pacman){
+	public Jeu(Labyrinthe laby, Pacman pacman,String source){
 		this.laby=laby;
 		this.pacman=pacman;
+		int[][] tab = new int[laby.NB_LIGNE][laby.NB_COLONNE];
+		Scanner sc = null;
+        try {
+            try {
+                sc = new Scanner(new File(source));
+                int i = 0;
+                int j = 0;
+                while (sc.hasNextLine()) {
+                    for (char c : sc.next().toCharArray()) {
+                    	//System.out.println(i+" "+j+" ");
+                    	if(i == 0 && j == 20){
+                        	break;
+                        }
+                        tab[i][j] = c;
+                        i++;
+                        if(i == 20){
+                        	j++;
+                        	i = 0;
+                        }
+                        
+                        
+                    }
+                }
+            } finally {
+                if (sc != null)
+                    sc.close();
+            }
+ 
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < tab.length; i++) {
+			for (int j = 0; j < tab.length; j++) {
+				sb.append(tab[i][j]);
+				if(j == 19){
+					sb.append("\n");
+				}
+			}
+		}
+        System.out.println(sb.toString());
 	}
 	
 	public Pacman getPacman() {
