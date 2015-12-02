@@ -19,7 +19,7 @@ public class Main {
 		Jeu m = new Jeu(laby, pacman);
 		// creation du jeu particulier et de son afficheur
 		PacmanGame game = new PacmanGame("src/helpFilePacman.txt");
-		PacmanPainter painter = new PacmanPainter(pacman);
+		PacmanPainter painter = new PacmanPainter(pacman,laby);
 		PacmanController controller = new PacmanController();
 
 		// classe qui lance le moteur de jeu generique

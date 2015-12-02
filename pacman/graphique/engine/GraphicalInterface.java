@@ -44,7 +44,7 @@ public class GraphicalInterface  {
 	 * mise a jour du dessin
 	 */
 	public void paint() {
-		this.panel.drawGame();	
+		this.panel.drawGame();
 	}
 	
 }

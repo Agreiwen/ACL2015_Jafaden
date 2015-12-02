@@ -91,6 +91,7 @@ public class Labyrinthe {
 					break;
 				default:
 					c = new CaseLibre(i,j);
+					break;
 				}
 				tabCases[i][j]=c;
 			}
@@ -107,6 +108,12 @@ public class Labyrinthe {
 		return tabCases[largeur][hauteur];
 	}
 
-
+	public int getLargeurTabCase(){
+		return tabCases.length;
+	}
+	
+	public int getHauteurTabCase(){
+		return tabCases[0].length;
+	}
 
 }
