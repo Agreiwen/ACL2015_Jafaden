@@ -1,5 +1,9 @@
 package pacman.carte;
 
-public class CaseNormale extends Case{
+public abstract class CaseNormale extends Case{
+
+	public CaseNormale(int largeur, int hauteur) {
+		super(largeur, hauteur);
+	}
 
 }
