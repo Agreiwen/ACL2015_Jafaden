@@ -24,7 +24,7 @@ public class GraphicalInterface  {
 	 * 
 	 */
 	public GraphicalInterface(GamePainter gamePainter, GameController gameController){
-		JFrame f=new JFrame();
+		JFrame f=new JFrame("Projet M1 Informatique - Pacman");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		// attacher le panel contenant l'afficheur du game
