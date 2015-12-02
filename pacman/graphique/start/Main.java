@@ -13,9 +13,9 @@ import pacman.personnages.Pacman;
  */
 public class Main {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) {
 		Pacman pacman = new Pacman(0, 0);
-		Labyrinthe laby = new Labyrinthe(5, 5);
+		Labyrinthe laby = new Labyrinthe(Labyrinthe.NB_LIGNE, Labyrinthe.NB_COLONNE);
 		Jeu m = new Jeu(laby, pacman);
 		// creation du jeu particulier et de son afficheur
 		PacmanGame game = new PacmanGame("src/helpFilePacman.txt");
@@ -24,7 +24,12 @@ public class Main {
 
 		// classe qui lance le moteur de jeu generique
 		GameEngineGraphical engine = new GameEngineGraphical(m, painter, controller);
-		engine.run();
+		try {
+			engine.run();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
