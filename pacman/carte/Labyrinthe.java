@@ -61,10 +61,10 @@ public class Labyrinthe {
 		}
 		
 		/* Test Murs */
-		if(rep){
+		/*if(rep){
 			Case c = getCase(largeur, hauteur);
 			rep = c.isAteignable();
-		}
+		}*/
 		return rep;
 	}
 	

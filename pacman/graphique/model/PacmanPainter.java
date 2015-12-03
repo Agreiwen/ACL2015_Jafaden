@@ -47,13 +47,13 @@ public class PacmanPainter implements GamePainter {
 		pacman.setColor(Color.blue);
 		pacman.fillOval(pc.getLargeurGraphique(),pc.getHauteurGraphique(),25,25);
 		Graphics2D mur = (Graphics2D) im.getGraphics();
-		mur.setColor(Color.blue);
+		mur.setColor(Color.black);
 		mur.fillOval(pc.getLargeurGraphique(),pc.getHauteurGraphique(),25,25);
 		for (int i = 0; i < laby.getLargeurTabCase(); i++) {
 			for (int j = 0; j < laby.getHauteurTabCase(); j++) {
-				if(!laby.getCase(i, j).isAteignable()){
+		//		if(!laby.getCase(i, j).isAteignable()){
 					mur.fillRect(i*Labyrinthe.LARGEUR_CASE, j*Labyrinthe.HAUTEUR_CASE, 25, 25);
-				}
+			//	}
 			}
 		}
 		
