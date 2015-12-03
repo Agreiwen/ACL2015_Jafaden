@@ -34,6 +34,10 @@ public class Labyrinthe {
 	public void setGrille(int[][] grille) {
 		this.grille = grille;
 	}
+	
+	public void setGrilleCases(Case[][] grille){
+		this.tabCases = grille;
+	}
 
 
 	public int getLargeur() {
@@ -74,10 +78,7 @@ public class Labyrinthe {
 		return hauteur;
 	}
 	
-	/**
-	 * remplit le tableau de case, en instanciant différents types selon le 
-	 *  tableau d'entiers, et donc selon le fichier de base. 
-	 */
+	
 	public void remplirTabCases(){
 		for (int i = 0; i < grille.length; i++) {
 			for (int j = 0; j < grille[0].length; j++) {

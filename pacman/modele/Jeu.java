@@ -7,6 +7,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
+import pacman.carte.Case;
+import pacman.carte.CaseLibre;
+import pacman.carte.CaseMur;
 import pacman.carte.Labyrinthe;
 import pacman.graphique.engine.Cmd;
 import pacman.graphique.engine.Game;
@@ -21,6 +24,15 @@ public class Jeu implements Game{
 	public Jeu(Labyrinthe laby, Pacman pacman, String source){
 		this.laby=laby;
 		this.pacman=pacman;
+		this.lireFichier(source);
+	}
+	
+	/**
+	 * remplit le tableau de case, en instanciant différents types selon le 
+	 *  tableau d'entiers lu dans le fichier source. 
+	 */
+	private void lireFichier(String source) {
+		Case[][] tabCases = new Case[laby.NB_LIGNE][laby.NB_COLONNE];
 		int[][] tab = new int[laby.NB_LIGNE][laby.NB_COLONNE];
 		Scanner sc = null;
         try {
@@ -30,11 +42,11 @@ public class Jeu implements Game{
                 int j = 0;
                 while (sc.hasNextLine()) {
                     for (char c : sc.next().toCharArray()) {
-                    	//System.out.println(i+" "+j+" ");
                     	if(i == 0 && j == 20){
                         	break;
                         }
-                        tab[i][j] = c;
+                    	String tmp = String.valueOf(c);
+                        tab[i][j] = Integer.parseInt(tmp);
                         i++;
                         if(i == 20){
                         	j++;
@@ -53,18 +65,38 @@ public class Jeu implements Game{
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        StringBuilder sb = new StringBuilder();
+        
         for (int i = 0; i < tab.length; i++) {
-			for (int j = 0; j < tab.length; j++) {
-				sb.append(tab[i][j]);
-				if(j == 19){
-					sb.append("\n");
+			for (int j = 0; j < tab[0].length; j++) {
+				Case c = null;
+				switch(tab[i][j]){
+				case 0:
+					c = new CaseLibre(i,j);
+					break;
+				case 1:
+					c = new CaseMur(i,j);
+					break;
+				default:
+					c = new CaseLibre(i,j);
+					break;
 				}
+				tabCases[i][j]=c;
 			}
 		}
-        System.out.println(sb.toString());
+        laby.setGrilleCases(tabCases);
+//        StringBuilder sb = new StringBuilder();
+//        for (int i = 0; i < tab.length; i++) {
+//			for (int j = 0; j < tab[0].length; j++) {
+//				sb.append(tab[i][j]);
+//				if(j == 19){
+//					sb.append("\n");
+//				}
+//			}
+//		}
+//        System.out.println(sb.toString());
+		
 	}
-	
+
 	public Pacman getPacman() {
 		return pacman;
 	}
