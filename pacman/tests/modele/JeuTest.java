@@ -24,7 +24,7 @@ public class JeuTest {
 	public void testCaseLibre() {
 		Pacman p = new Pacman(3, 0);
 		Labyrinthe l = new Labyrinthe(4, 4);
-		Jeu m = new Jeu(l,p);
+		Jeu m = new Jeu(l,p,"src\test.txt");
 		assertEquals(false, m.caseLibre(-1, 0));
 		assertEquals(false, m.caseLibre(0, 4));
 		assertEquals(true, m.caseLibre(2, 2));
@@ -35,7 +35,7 @@ public class JeuTest {
 	public void testDeplacerPacmanGauche() {
 		Pacman p = new Pacman(1,0);
 		Labyrinthe l = new Labyrinthe(4,4);
-		Jeu m = new Jeu(l,p);
+		Jeu m = new Jeu(l,p,"src\test.txt");
 		m.deplacerGauche(p);
 		assertEquals(0, p.getLargeur());
 		m.deplacerGauche(p);
@@ -46,7 +46,7 @@ public class JeuTest {
 	public void testDeplacerPacmanDroite() {
 		Pacman p = new Pacman(2,2);
 		Labyrinthe l = new Labyrinthe(4,4);
-		Jeu m = new Jeu(l,p);
+		Jeu m = new Jeu(l,p,"src\test.txt");
 		m.deplacerDroite(p);
 		assertEquals(3, p.getLargeur());
 		m.deplacerDroite(p);
@@ -57,7 +57,7 @@ public class JeuTest {
 	public void testDeplacerPacmanBas() {
 		Pacman p = new Pacman(1,2);
 		Labyrinthe l = new Labyrinthe(4,4);
-		Jeu m = new Jeu(l,p);
+		Jeu m = new Jeu(l,p,"src\test.txt");
 		m.deplacerBas(p);
 		assertEquals(3, p.getHauteur());
 		m.deplacerBas(p);
@@ -68,7 +68,7 @@ public class JeuTest {
 	public void testDeplacerPacmanHaut() {
 		Pacman p = new Pacman(1,1);
 		Labyrinthe l = new Labyrinthe(4,4);
-		Jeu m = new Jeu(l,p);
+		Jeu m = new Jeu(l,p,"src\test.txt");
 		m.deplacerHaut(p);
 		assertEquals(0, p.getHauteur());
 		m.deplacerHaut(p);
