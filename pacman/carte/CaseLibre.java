@@ -1,5 +1,7 @@
 package pacman.carte;
 
+import pacman.personnages.Hitbox;
+
 public class CaseLibre extends CaseNormale{
 
 	
@@ -12,5 +14,4 @@ public class CaseLibre extends CaseNormale{
 		super(largeur, hauteur);
 		this.ateignable=true;
 	}
-
 }

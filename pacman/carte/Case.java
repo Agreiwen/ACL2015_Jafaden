@@ -1,21 +1,26 @@
 package pacman.carte;
 
-public abstract class Case {
+import pacman.personnages.Hitbox;
+import pacman.personnages.Sprite;
+
+public abstract class Case implements Sprite{
 	
 	
 	/**
-	 * Une Case est définie par une largeur et une hauteur, 
-	 * correspondant à sa position dans le labyrinthe.
-	 * On sait egalement si la case est ateignable par pacman grâce au paramètre ateignable.
+	 * Une Case est dï¿½finie par une largeur et une hauteur, 
+	 * correspondant ï¿½ sa position dans le labyrinthe.
+	 * On sait egalement si la case est ateignable par pacman grï¿½ce au paramï¿½tre ateignable.
 	 */
 	protected int largeur;
 	protected int hauteur;
 	protected boolean ateignable;
+        protected Hitbox hitbox;
 
 	
 	public Case(int largeur, int hauteur){
 		this.largeur=largeur;
 		this.hauteur=hauteur;
+                hitbox = new Hitbox(largeur, hauteur);
 	}
 
 
@@ -41,5 +46,13 @@ public abstract class Case {
 	public boolean isAteignable(){
 		return this.ateignable;
 	}
-	
+
+        public Hitbox getHitbox() {
+            return hitbox;
+        }
+        
+        @Override
+        public boolean collisionAvec(Hitbox h) {
+            return this.hitbox.collisionAvec(h);
+        }
 }
