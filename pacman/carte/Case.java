@@ -14,7 +14,7 @@ public abstract class Case implements Sprite{
 	protected int largeur;
 	protected int hauteur;
 	protected boolean ateignable;
-        protected Hitbox hitbox;
+	protected Hitbox hitbox;
 
 	
 	public Case(int largeur, int hauteur){

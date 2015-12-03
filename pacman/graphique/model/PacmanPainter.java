@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import pacman.carte.Case;
 import pacman.carte.CaseLibre;
 import pacman.carte.CaseMur;
+import pacman.carte.CaseTresor;
 import pacman.carte.Labyrinthe;
 import pacman.graphique.engine.GamePainter;
 import pacman.personnages.Pacman;
@@ -43,19 +44,26 @@ public class PacmanPainter implements GamePainter {
 	 */
 	@Override
 	public void draw(BufferedImage im) {
-		Graphics2D pacman = (Graphics2D) im.getGraphics();
-		pacman.setColor(Color.blue);
-		pacman.fillOval(pc.getLargeurGraphique(),pc.getHauteurGraphique(),25,25);
+		
 		Graphics2D mur = (Graphics2D) im.getGraphics();
 		mur.setColor(Color.black);
-		mur.fillOval(pc.getLargeurGraphique(),pc.getHauteurGraphique(),25,25);
+		//mur.fillOval(pc.getLargeurGraphique(),pc.getHauteurGraphique(),25,25);
+		Graphics2D tresor = (Graphics2D) im.getGraphics();
+		tresor.setColor(Color.yellow);
 		for (int i = 0; i < laby.getLargeurTabCase(); i++) {
 			for (int j = 0; j < laby.getHauteurTabCase(); j++) {
-				if(!laby.getCase(i, j).isAteignable()){
+				Case c = laby.getCase(i, j);
+				if(c instanceof CaseMur){
 					mur.fillRect(i*Labyrinthe.LARGEUR_CASE, j*Labyrinthe.HAUTEUR_CASE, 25, 25);
+				}
+				if(c instanceof CaseTresor){
+					tresor.fillRect(i*Labyrinthe.LARGEUR_CASE, j*Labyrinthe.HAUTEUR_CASE, 25, 25);
 				}
 			}
 		}
+		Graphics2D pacman = (Graphics2D) im.getGraphics();
+		pacman.setColor(Color.blue);
+		pacman.fillOval(pc.getLargeurGraphique(),pc.getHauteurGraphique(),25,25);
 		
 	}
 
