@@ -3,11 +3,8 @@ package pacman.graphique.model;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
-import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 
 import pacman.carte.Case;
@@ -15,9 +12,8 @@ import pacman.carte.CaseMur;
 import pacman.carte.CaseTresor;
 import pacman.carte.Labyrinthe;
 import pacman.graphique.engine.GamePainter;
-import pacman.modele.Jeu;
 import pacman.graphique.texture.Texture;
-
+import pacman.modele.Jeu;
 import pacman.personnages.Pacman;
 
 /**

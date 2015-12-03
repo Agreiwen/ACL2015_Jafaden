@@ -1,7 +1,5 @@
 package pacman.personnages;
 
-import pacman.carte.Labyrinthe;
-
 public class Fantome extends Personnage{
 
 	public Fantome(int largeur, int hauteur) {

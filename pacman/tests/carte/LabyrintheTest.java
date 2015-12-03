@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import pacman.carte.Labyrinthe;
-import pacman.personnages.Pacman;
 
 public class LabyrintheTest {
 

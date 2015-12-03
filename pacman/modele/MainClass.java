@@ -1,10 +1,5 @@
 package pacman.modele;
 
-import java.util.Scanner;
-
-import pacman.carte.Labyrinthe;
-import pacman.personnages.Pacman;
-
 public class MainClass {
 	
 	public MainClass(){

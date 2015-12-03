@@ -1,9 +1,5 @@
 package pacman.graphique.start;
 
-import java.awt.Image;
-
-import javax.swing.ImageIcon;
-
 import pacman.carte.Labyrinthe;
 import pacman.graphique.engine.GameEngineGraphical;
 import pacman.graphique.model.PacmanController;

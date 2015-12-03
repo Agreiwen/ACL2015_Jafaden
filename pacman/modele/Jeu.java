@@ -1,13 +1,9 @@
 package pacman.modele;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import pacman.carte.Case;
 
 import pacman.carte.Case;
 import pacman.carte.CaseLibre;
@@ -31,7 +27,7 @@ public class Jeu implements Game{
 		this.pacman=pacman;
 		this.lireFichier(source);
 		this.fantomes = new ArrayList<Fantome>();
-		fantomes.add(new Fantome(100, 100));
+		fantomes.add(new Fantome(100, 150));
 		fantomes.add(new Fantome(200, 100));
 	}
 	
@@ -216,7 +212,9 @@ public class Jeu implements Game{
 	 */
 	@Override
 	public boolean isFinished() {
-		return (pacman.getHauteur()==laby.getHauteurTresor() && pacman.getLargeur()==laby.getLargeurTresor());
+		boolean fini = false;
+		fini =  (pacman.getHauteur()==laby.getHauteurTresor() && pacman.getLargeur()==laby.getLargeurTresor());
+		return fini;
 	}
         
         
