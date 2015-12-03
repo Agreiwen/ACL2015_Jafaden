@@ -16,7 +16,9 @@ import pacman.carte.CaseMur;
 import pacman.carte.CaseTresor;
 import pacman.carte.Labyrinthe;
 import pacman.graphique.engine.GamePainter;
+import pacman.modele.Jeu;
 import pacman.graphique.texture.Texture;
+
 import pacman.personnages.Pacman;
 import pacman.personnages.Personnage.Direction;
 
@@ -35,6 +37,7 @@ public class PacmanPainter extends JComponent implements GamePainter {
 	public static final int HEIGHT = 500;
 	Pacman pc;
 	Labyrinthe laby;
+	Jeu jeu;
 	Texture texture;
 
 	/**
@@ -43,10 +46,14 @@ public class PacmanPainter extends JComponent implements GamePainter {
 	 * @param game
 	 *            le jeutest a afficher
 	 */
-	public PacmanPainter(Pacman pc, Labyrinthe laby, Texture texture) {
+
+	
+
+	public PacmanPainter(Pacman pc, Labyrinthe laby, Texture texture, Jeu jeu) {
 		this.pc=pc;
 		this.laby=laby;
 		this.texture=texture;
+		this.jeu=jeu;
 	}
 
 	/**
@@ -73,6 +80,18 @@ public class PacmanPainter extends JComponent implements GamePainter {
 		
 		Graphics2D pacman = (Graphics2D) im.getGraphics();
 	    pacman.drawImage(choixImage(), pc.getLargeurGraphique(), pc.getHauteurGraphique(), 25, 25, this);
+
+		for (int i = 0; i < jeu.getFantomes().size(); i++) {
+			Graphics2D fantome = (Graphics2D) im.getGraphics();
+			fantome.setColor(Color.red);
+			fantome.fillOval(jeu.getFantomes().get(i).getLargeur(),jeu.getFantomes().get(i).getHauteur(),25,25);
+		}
+		
+		//Graphics2D g2 = (Graphics2D) im.getGraphics();
+	    //Image img1 = Toolkit.getDefaultToolkit().getImage("pacman/graphique/texture/pacman.png");
+		//Image image = new ImageIcon(this.getClass().getResource("src/pacman/graphique/texture/pacman.png")).getImage();
+//	    g2.drawImage(image, 100, 100, this);
+//	    g2.finalize();
 	}
 	
 	public Image choixImage(){

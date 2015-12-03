@@ -25,7 +25,7 @@ public class Main {
 		PacmanGame game = new PacmanGame("src/helpFilePacman.txt");
 		Jeu m = new Jeu(laby, pacman,"src/labyFilePacman.txt");
 		Texture texture = new Texture();
-		PacmanPainter painter = new PacmanPainter(pacman,laby,texture);
+		PacmanPainter painter = new PacmanPainter(pacman,laby,texture, m);
 		PacmanController controller = new PacmanController();
 		
 		// classe qui lance le moteur de jeu generique
