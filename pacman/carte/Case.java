@@ -1,9 +1,7 @@
 package pacman.carte;
 //
-import pacman.personnages.Hitbox;
-import pacman.personnages.Sprite;
 
-public abstract class Case implements Sprite{
+public abstract class Case{
 	
 	
 	/**
@@ -14,13 +12,11 @@ public abstract class Case implements Sprite{
 	protected int largeur;
 	protected int hauteur;
 	protected boolean ateignable;
-	protected Hitbox hitbox;
 
 	
 	public Case(int largeur, int hauteur){
 		this.largeur=largeur;
 		this.hauteur=hauteur;
-                hitbox = new Hitbox(largeur, hauteur);
 	}
 
 
@@ -46,13 +42,4 @@ public abstract class Case implements Sprite{
 	public boolean isAteignable(){
 		return this.ateignable;
 	}
-
-        public Hitbox getHitbox() {
-            return hitbox;
-        }
-        
-        @Override
-        public boolean collisionAvec(Hitbox h) {
-            return this.hitbox.collisionAvec(h);
-        }
 }

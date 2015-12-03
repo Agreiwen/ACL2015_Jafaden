@@ -1,6 +1,5 @@
 package pacman.carte;
 
-import pacman.personnages.Hitbox;
 
 public class CaseLibre extends CaseNormale{
 
