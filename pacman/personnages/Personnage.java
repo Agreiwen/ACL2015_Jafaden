@@ -44,7 +44,6 @@ public abstract class Personnage implements Sprite {
 		this.hauteur = hauteur;
 	}
 	
-	
 	/* Methodes de deplacement */
 	
 	public void deplacerGauche(){

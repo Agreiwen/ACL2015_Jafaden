@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import pacman.carte.Case;
 
@@ -14,6 +15,7 @@ import pacman.carte.CaseMur;
 import pacman.carte.Labyrinthe;
 import pacman.graphique.engine.Cmd;
 import pacman.graphique.engine.Game;
+import pacman.personnages.Fantome;
 import pacman.personnages.Pacman;
 import pacman.personnages.Personnage;
 
@@ -21,11 +23,13 @@ public class Jeu implements Game{
 	
 	protected Labyrinthe laby;
 	protected Pacman pacman;
+	protected ArrayList<Fantome> fantomes;
 	
 	public Jeu(Labyrinthe laby, Pacman pacman, String source){
 		this.laby=laby;
 		this.pacman=pacman;
 		this.lireFichier(source);
+		this.fantomes = new ArrayList<Fantome>();
 	}
 	
 	/**
@@ -97,6 +101,13 @@ public class Jeu implements Game{
 //        System.out.println(sb.toString());
 		
 	}
+
+	public void deplacerFantomes(){
+		for (int i = 0;  i< fantomes.size(); i++) {
+			fantomes.get(i).deplacer(this.pacman);
+		}
+	}
+	
 
 	public Pacman getPacman() {
 		return pacman;
