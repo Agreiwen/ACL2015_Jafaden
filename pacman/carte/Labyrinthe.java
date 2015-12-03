@@ -10,7 +10,10 @@ public class Labyrinthe {
 	public static int LARGEUR_CASE = 25;
 	public static int HAUTEUR_CASE = 25;
 	
+	
 	protected Case[][] tabCases;
+	protected int largeurTresor;
+	protected int hauteurTresor;
 	
 	//protected Pacman pacman;
 	
@@ -116,5 +119,17 @@ public class Labyrinthe {
 	public int getHauteurTabCase(){
 		return tabCases[0].length;
 	}
-
+	
+	public void setPosTresor(int largeur, int hauteur){
+		this.largeurTresor=largeur;
+		this.hauteurTresor=hauteur;
+	}
+	
+	public int getLargeurTresor(){
+		return this.largeurTresor;
+	}
+	
+	public int getHauteurTresor(){
+		return this.hauteurTresor;
+	}
 }

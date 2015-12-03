@@ -80,6 +80,7 @@ public class Jeu implements Game{
 					break;
 				case 2:
 					c = new CaseTresor(i,j);
+					laby.setPosTresor(i, j);
 					break;
 				default:
 					c = new CaseLibre(i,j);
@@ -219,8 +220,7 @@ public class Jeu implements Game{
 	 */
 	@Override
 	public boolean isFinished() {
-		// le jeu n'est jamais fini
-		return false;
+		return (pacman.getHauteur()==laby.getHauteurTresor() && pacman.getLargeur()==laby.getLargeurTresor());
 	}
         
         
