@@ -23,6 +23,7 @@ public class GraphicalInterface  {
 	 * @param gameController l'afficheur a utiliser dans le moteur
 	 * 
 	 */
+	@SuppressWarnings("static-access")
 	public GraphicalInterface(GamePainter gamePainter, GameController gameController){
 		JFrame f=new JFrame("Projet M1 Informatique - Pacman");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,6 +44,7 @@ public class GraphicalInterface  {
 	/**
 	 * mise a jour du dessin
 	 */
+	@SuppressWarnings("static-access")
 	public void paint() {
 		this.panel.drawGame();
 	}

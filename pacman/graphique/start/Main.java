@@ -14,6 +14,7 @@ import pacman.personnages.Pacman;
  */
 public class Main {
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		Pacman pacman = new Pacman(0, 0);
 		Labyrinthe laby = new Labyrinthe(Labyrinthe.NB_LIGNE, Labyrinthe.NB_COLONNE);

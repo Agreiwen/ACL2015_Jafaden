@@ -39,6 +39,7 @@ public class Jeu implements Game{
 	 * remplit le tableau de case, en instanciant diff�rents types selon le 
 	 *  tableau d'entiers lu dans le fichier source. 
 	 */
+	@SuppressWarnings("static-access")
 	private void lireFichier(String source) {
 		Case[][] tabCases = new Case[laby.NB_LIGNE][laby.NB_COLONNE];
 		int[][] tab = new int[laby.NB_LIGNE][laby.NB_COLONNE];
