@@ -185,7 +185,7 @@ public class Jeu implements Game{
 	 */
 	@Override
 	public void evolve(Cmd commande) {
-		//System.out.println("Execute "+commande);
+//		System.out.println("Execute "+commande);
 		if(commande == Cmd.RIGHT){
 			deplacerDroite(pacman);
 		}

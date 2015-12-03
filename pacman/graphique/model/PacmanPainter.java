@@ -4,8 +4,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+import java.net.URL;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
@@ -17,6 +18,7 @@ import pacman.carte.Labyrinthe;
 import pacman.graphique.engine.GamePainter;
 import pacman.graphique.texture.Texture;
 import pacman.personnages.Pacman;
+import pacman.personnages.Personnage.Direction;
 
 /**
  * @author Horatiu Cirstea, Vincent Thomas
@@ -68,19 +70,31 @@ public class PacmanPainter extends JComponent implements GamePainter {
 				}
 			}
 		}
-		Graphics pacman = (Graphics2D) im.getGraphics();
-		pacman.setColor(Color.blue);
-		pacman.fillOval(pc.getLargeurGraphique(),pc.getHauteurGraphique(),25,25);
 		
-		Graphics2D g2 = (Graphics2D) im.getGraphics();
-	    //Image img1 = Toolkit.getDefaultToolkit().getImage("pacman/graphique/texture/pacman.png");
-		//Image image = new ImageIcon(this.getClass().getResource("src/pacman/graphique/texture/pacman.png")).getImage();
-//	    g2.drawImage(image, 100, 100, this);
-//	    g2.finalize();
+		Graphics2D pacman = (Graphics2D) im.getGraphics();
+	    pacman.drawImage(choixImage(), pc.getLargeurGraphique(), pc.getHauteurGraphique(), 25, 25, this);
 	}
 	
+	public Image choixImage(){
+		Image im = texture.getTexture(0);
+		switch(pc.getDirection()){
+		case DROITE :
+			im = texture.getTexture(0);
+			break;
+		case GAUCHE :
+			im = texture.getTexture(1);
+			break;
+		case BAS :
+			im = texture.getTexture(2);
+			break;
+		case HAUT :
+			System.out.println("Haut");
+			im = texture.getTexture(3);
+			break;
+		}
+		return im;
+	}
 	
-
 	@Override
 	public int getWidth() {
 		return WIDTH;
