@@ -18,7 +18,7 @@ public class Jeu implements Game{
 	protected Labyrinthe laby;
 	protected Pacman pacman;
 	
-	public Jeu(Labyrinthe laby, Pacman pacman,String source){
+	public Jeu(Labyrinthe laby, Pacman pacman, String source){
 		this.laby=laby;
 		this.pacman=pacman;
 		int[][] tab = new int[laby.NB_LIGNE][laby.NB_COLONNE];
