@@ -1,10 +1,15 @@
 package pacman.graphique.start;
 
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
 import pacman.carte.Labyrinthe;
 import pacman.graphique.engine.GameEngineGraphical;
 import pacman.graphique.model.PacmanController;
 import pacman.graphique.model.PacmanGame;
 import pacman.graphique.model.PacmanPainter;
+import pacman.graphique.texture.Texture;
 import pacman.modele.Jeu;
 import pacman.personnages.Pacman;
 
@@ -18,10 +23,11 @@ public class Main {
 		Labyrinthe laby = new Labyrinthe(Labyrinthe.NB_LIGNE, Labyrinthe.NB_COLONNE);
 		// creation du jeu particulier et de son afficheur
 		PacmanGame game = new PacmanGame("src/helpFilePacman.txt");
-		Jeu m = new Jeu(laby, pacman,"labyFilePacman.txt");
-		PacmanPainter painter = new PacmanPainter(pacman,laby);
+		Jeu m = new Jeu(laby, pacman,"src/labyFilePacman.txt");
+		Texture texture = new Texture();
+		PacmanPainter painter = new PacmanPainter(pacman,laby,texture);
 		PacmanController controller = new PacmanController();
-
+		
 		// classe qui lance le moteur de jeu generique
 		GameEngineGraphical engine = new GameEngineGraphical(m, painter, controller);
 		try {
