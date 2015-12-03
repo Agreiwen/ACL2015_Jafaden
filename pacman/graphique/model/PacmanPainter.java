@@ -10,6 +10,7 @@ import pacman.carte.CaseMur;
 import pacman.carte.CaseTresor;
 import pacman.carte.Labyrinthe;
 import pacman.graphique.engine.GamePainter;
+import pacman.modele.Jeu;
 import pacman.personnages.Pacman;
 
 /**
@@ -27,6 +28,7 @@ public class PacmanPainter implements GamePainter {
 	public static final int HEIGHT = 500;
 	Pacman pc;
 	Labyrinthe laby;
+	Jeu jeu;
 
 	/**
 	 * appelle constructeur parent
@@ -34,9 +36,10 @@ public class PacmanPainter implements GamePainter {
 	 * @param game
 	 *            le jeutest a afficher
 	 */
-	public PacmanPainter(Pacman pc, Labyrinthe laby) {
+	public PacmanPainter(Pacman pc, Labyrinthe laby, Jeu jeu) {
 		this.pc=pc;
 		this.laby=laby;
+		this.jeu=jeu;
 	}
 
 	/**
@@ -64,6 +67,12 @@ public class PacmanPainter implements GamePainter {
 		Graphics2D pacman = (Graphics2D) im.getGraphics();
 		pacman.setColor(Color.blue);
 		pacman.fillOval(pc.getLargeurGraphique(),pc.getHauteurGraphique(),25,25);
+		
+		for (int i = 0; i < jeu.getFantomes().size(); i++) {
+			Graphics2D fantome = (Graphics2D) im.getGraphics();
+			fantome.setColor(Color.red);
+			fantome.fillOval(jeu.getFantomes().get(i).getLargeur(),jeu.getFantomes().get(i).getHauteur(),25,25);
+		}
 		
 	}
 

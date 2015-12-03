@@ -31,8 +31,14 @@ public class Jeu implements Game{
 		this.pacman=pacman;
 		this.lireFichier(source);
 		this.fantomes = new ArrayList<Fantome>();
+		fantomes.add(new Fantome(100, 100));
+		fantomes.add(new Fantome(200, 100));
 	}
 	
+	public ArrayList<Fantome> getFantomes() {
+		return fantomes;
+	}
+
 	/**
 	 * remplit le tableau de case, en instanciant différents types selon le 
 	 *  tableau d'entiers lu dans le fichier source. 
@@ -186,6 +192,7 @@ public class Jeu implements Game{
 	@Override
 	public void evolve(Cmd commande) {
 		//System.out.println("Execute "+commande);
+		this.deplacerFantomes();
 		if(commande == Cmd.RIGHT){
 			deplacerDroite(pacman);
 		}
@@ -198,6 +205,8 @@ public class Jeu implements Game{
 		if(commande == Cmd.UP){
 			deplacerHaut(pacman);
 		}
+		
+		
                 
 		//System.out.println(pacman.getLargeur()+" "+pacman.getHauteur());
 	}

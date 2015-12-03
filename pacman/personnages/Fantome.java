@@ -1,5 +1,7 @@
 package pacman.personnages;
 
+import pacman.carte.Labyrinthe;
+
 public class Fantome extends Personnage{
 
 	public Fantome(int largeur, int hauteur) {
@@ -7,10 +9,10 @@ public class Fantome extends Personnage{
 	}
 
 	public void deplacer(Pacman p){
-		int haut = distanceManhatan(this.largeur, this.hauteur-1, p.largeur, p.hauteur);
-		int bas = distanceManhatan(this.largeur, this.hauteur+1, p.largeur, p.hauteur);
-		int droite = distanceManhatan(this.largeur+1, this.hauteur, p.largeur, p.hauteur);
-		int gauche = distanceManhatan(this.largeur-1, this.hauteur, p.largeur, p.hauteur);
+		int haut = distanceManhatan(this.largeur, this.hauteur-1, p.largeur*25, p.hauteur*25);
+		int bas = distanceManhatan(this.largeur, this.hauteur+1, p.largeur*25, p.hauteur*25);
+		int droite = distanceManhatan(this.largeur+1, this.hauteur, p.largeur*25, p.hauteur*25);
+		int gauche = distanceManhatan(this.largeur-1, this.hauteur, p.largeur*25, p.hauteur*25);
 		String min = getMin(haut, bas, droite, gauche);
 		switch(min){
 			case "haut":
@@ -48,7 +50,6 @@ public class Fantome extends Personnage{
 	}
 
 	private int distanceManhatan(int largeur, int hauteur, int largeur2, int hauteur2) {
-		int distance = Math.abs(largeur-largeur2) + Math.abs(hauteur-hauteur2);
-		return distance;
+		return Math.abs(largeur-largeur2) + Math.abs(hauteur-hauteur2);
 	}
 }
