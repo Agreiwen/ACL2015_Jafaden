@@ -4,26 +4,31 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+
 public class Texture {
 	
 	public ArrayList<Image> images;
-	Image pacman;
 	Image fantome;
 	
 	public Texture(){
 		images = new ArrayList<Image>();
-		pacman = Toolkit.getDefaultToolkit().getImage("pacman.png");
-		fantome = Toolkit.getDefaultToolkit().getImage("fantome.png");
 		ajoutDesImages();
 	}
 	
 	public void ajoutDesImages(){
-		images.add(pacman);
+		Image pacman0 = new ImageIcon(this.getClass().getResource("../texture/pacman0.png")).getImage();
+		Image pacman1 = new ImageIcon(this.getClass().getResource("../texture/pacman1.png")).getImage();
+		Image pacman2 = new ImageIcon(this.getClass().getResource("../texture/pacman2.png")).getImage();
+		Image pacman3 = new ImageIcon(this.getClass().getResource("../texture/pacman3.png")).getImage();
+		images.add(pacman0);
+		images.add(pacman1);
+		images.add(pacman2);
+		images.add(pacman3);
 		images.add(fantome);
 	}
 	
 	public Image getTexture(int i){
-		System.out.println(pacman);
 		return images.get(i);
 	}
 }
