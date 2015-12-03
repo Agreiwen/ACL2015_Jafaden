@@ -12,6 +12,7 @@ import pacman.carte.Case;
 import pacman.carte.Case;
 import pacman.carte.CaseLibre;
 import pacman.carte.CaseMur;
+import pacman.carte.CaseTresor;
 import pacman.carte.Labyrinthe;
 import pacman.graphique.engine.Cmd;
 import pacman.graphique.engine.Game;
@@ -80,6 +81,10 @@ public class Jeu implements Game{
 					break;
 				case 1:
 					c = new CaseMur(i,j);
+					break;
+				case 2:
+					c = new CaseTresor(i,j);
+					laby.setPosTresor(i, j);
 					break;
 				default:
 					c = new CaseLibre(i,j);
@@ -226,8 +231,7 @@ public class Jeu implements Game{
 	 */
 	@Override
 	public boolean isFinished() {
-		// le jeu n'est jamais fini
-		return false;
+		return (pacman.getHauteur()==laby.getHauteurTresor() && pacman.getLargeur()==laby.getLargeurTresor());
 	}
         
         
