@@ -1,5 +1,5 @@
 package pacman.carte;
-
+//
 import pacman.personnages.Hitbox;
 import pacman.personnages.Sprite;
 
