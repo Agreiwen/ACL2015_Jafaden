@@ -1,7 +1,6 @@
 package pacman.graphique.texture;
 
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
