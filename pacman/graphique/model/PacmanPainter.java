@@ -1,16 +1,23 @@
 package pacman.graphique.model;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+
 import pacman.carte.Case;
-import pacman.carte.CaseLibre;
 import pacman.carte.CaseMur;
 import pacman.carte.CaseTresor;
 import pacman.carte.Labyrinthe;
 import pacman.graphique.engine.GamePainter;
 import pacman.modele.Jeu;
+import pacman.graphique.texture.Texture;
+
 import pacman.personnages.Pacman;
 
 /**
@@ -19,7 +26,7 @@ import pacman.personnages.Pacman;
  * afficheur graphique pour le game
  * 
  */
-public class PacmanPainter implements GamePainter {
+public class PacmanPainter extends JComponent implements GamePainter {
 
 	/**
 	 * la taille des cases
@@ -29,6 +36,7 @@ public class PacmanPainter implements GamePainter {
 	Pacman pc;
 	Labyrinthe laby;
 	Jeu jeu;
+	Texture texture;
 
 	/**
 	 * appelle constructeur parent
@@ -36,9 +44,13 @@ public class PacmanPainter implements GamePainter {
 	 * @param game
 	 *            le jeutest a afficher
 	 */
-	public PacmanPainter(Pacman pc, Labyrinthe laby, Jeu jeu) {
+
+	
+
+	public PacmanPainter(Pacman pc, Labyrinthe laby, Texture texture, Jeu jeu) {
 		this.pc=pc;
 		this.laby=laby;
+		this.texture=texture;
 		this.jeu=jeu;
 	}
 
@@ -50,7 +62,6 @@ public class PacmanPainter implements GamePainter {
 		
 		Graphics2D mur = (Graphics2D) im.getGraphics();
 		mur.setColor(Color.black);
-		//mur.fillOval(pc.getLargeurGraphique(),pc.getHauteurGraphique(),25,25);
 		Graphics2D tresor = (Graphics2D) im.getGraphics();
 		tresor.setColor(Color.yellow);
 		for (int i = 0; i < laby.getLargeurTabCase(); i++) {
@@ -64,17 +75,25 @@ public class PacmanPainter implements GamePainter {
 				}
 			}
 		}
-		Graphics2D pacman = (Graphics2D) im.getGraphics();
+		Graphics pacman = (Graphics2D) im.getGraphics();
 		pacman.setColor(Color.blue);
 		pacman.fillOval(pc.getLargeurGraphique(),pc.getHauteurGraphique(),25,25);
 		
+
 		for (int i = 0; i < jeu.getFantomes().size(); i++) {
 			Graphics2D fantome = (Graphics2D) im.getGraphics();
 			fantome.setColor(Color.red);
 			fantome.fillOval(jeu.getFantomes().get(i).getLargeur(),jeu.getFantomes().get(i).getHauteur(),25,25);
 		}
 		
+		Graphics2D g2 = (Graphics2D) im.getGraphics();
+	    //Image img1 = Toolkit.getDefaultToolkit().getImage("pacman/graphique/texture/pacman.png");
+		//Image image = new ImageIcon(this.getClass().getResource("src/pacman/graphique/texture/pacman.png")).getImage();
+//	    g2.drawImage(image, 100, 100, this);
+//	    g2.finalize();
 	}
+	
+	
 
 	@Override
 	public int getWidth() {

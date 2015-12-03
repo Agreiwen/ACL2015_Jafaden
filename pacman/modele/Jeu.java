@@ -40,7 +40,7 @@ public class Jeu implements Game{
 	}
 
 	/**
-	 * remplit le tableau de case, en instanciant différents types selon le 
+	 * remplit le tableau de case, en instanciant diffï¿½rents types selon le 
 	 *  tableau d'entiers lu dans le fichier source. 
 	 */
 	private void lireFichier(String source) {
@@ -210,30 +210,6 @@ public class Jeu implements Game{
                 
 		//System.out.println(pacman.getLargeur()+" "+pacman.getHauteur());
 	}
-
-        public void gestionCollision(){
-            //pour le moment on gere que les collisions pour le pacman
-            if(hasCollision(pacman)){
-                pacman.retourAnciennePosition();
-            }
-        }
-        
-        public boolean hasCollision(Personnage p){
-            boolean rep = false;
-            int i = 0;
-            while(!rep && i < laby.getLargeur()){
-                int j = 0;
-                while(!rep && j < laby.getHauteur()){
-                    Case c = laby.getCase(i, j);
-                    if(p.collisionAvec(c.getHitbox())){
-                        rep = true;
-                    }
-                    j++;
-                }
-                i++;
-            }
-            return false;
-        }
         
 	/**
 	 * verifier si le jeu est fini
