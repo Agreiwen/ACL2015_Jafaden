@@ -25,7 +25,22 @@ public class Texture {
 		}
 	}
 	
+	public Image getTextureMur(){
+		Image mur = new ImageIcon(this.getClass().getResource("../texture/mur.png")).getImage();
+		return mur;
+	}
+	
 	public Image getTexture(int i){
 		return images.get(i);
+	}
+
+	public Image getTextureCaseLibre() {
+		Image mur = new ImageIcon(this.getClass().getResource("../texture/passage.png")).getImage();
+		return mur;
+	}
+	
+	public Image getTextureCaseTresor() {
+		Image mur = new ImageIcon(this.getClass().getResource("../texture/coffre.png")).getImage();
+		return mur;
 	}
 }

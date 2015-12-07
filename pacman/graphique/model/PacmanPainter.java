@@ -9,6 +9,7 @@ import javax.swing.JComponent;
 
 import pacman.carte.Case;
 import pacman.carte.CaseMur;
+import pacman.carte.CaseLibre;
 import pacman.carte.CaseTresor;
 import pacman.carte.Labyrinthe;
 import pacman.graphique.engine.GamePainter;
@@ -71,10 +72,16 @@ public class PacmanPainter extends JComponent implements GamePainter {
 			for (int j = 0; j < laby.getHauteurTabCase(); j++) {
 				Case c = laby.getCase(i, j);
 				if(c instanceof CaseMur){
-					mur.fillRect(i*Labyrinthe.LARGEUR_CASE, j*Labyrinthe.HAUTEUR_CASE, 25, 25);
+					mur.drawImage(texture.getTextureMur(),i*Labyrinthe.LARGEUR_CASE,  j*Labyrinthe.HAUTEUR_CASE, 25, 25, this);
+					//mur.fillRect(i*Labyrinthe.LARGEUR_CASE, j*Labyrinthe.HAUTEUR_CASE, 25, 25);
+				}
+				if(c instanceof CaseLibre){
+					mur.drawImage(texture.getTextureCaseLibre(),i*Labyrinthe.LARGEUR_CASE,  j*Labyrinthe.HAUTEUR_CASE, 25, 25, this);
 				}
 				if(c instanceof CaseTresor){
-					tresor.fillRect(i*Labyrinthe.LARGEUR_CASE, j*Labyrinthe.HAUTEUR_CASE, 25, 25);
+//					tresor.fillRect(i*Labyrinthe.LARGEUR_CASE, j*Labyrinthe.HAUTEUR_CASE, 25, 25);
+					tresor.drawImage(texture.getTextureCaseLibre(),i*Labyrinthe.LARGEUR_CASE,  j*Labyrinthe.HAUTEUR_CASE, 25, 25, this);
+					tresor.drawImage(texture.getTextureCaseTresor(),i*Labyrinthe.LARGEUR_CASE,  j*Labyrinthe.HAUTEUR_CASE, 25, 25, this);
 				}
 			}
 		}

@@ -15,12 +15,15 @@ import pacman.graphique.engine.Game;
 import pacman.personnages.Fantome;
 import pacman.personnages.Pacman;
 import pacman.personnages.Personnage;
+import pacman.personnages.Personnage.Direction;
 
 public class Jeu implements Game{
 	
 	protected Labyrinthe laby;
 	protected Pacman pacman;
 	protected ArrayList<Fantome> fantomes;
+    public enum Etat{ENCOURS,PERDU,GAGNER};
+    private Etat etat = Etat.ENCOURS;
 	
 	public Jeu(Labyrinthe laby, Pacman pacman, String source){
 		this.laby=laby;
@@ -142,6 +145,9 @@ public class Jeu implements Game{
 	 * Methodes de deplacement d'un personnage
 	 */
 	
+	public Etat getEtat(){
+		return etat;
+	}
 	
 	
 	/* PROBLEME DE PROPOTIONS Tab/Laby graphique */
@@ -202,18 +208,34 @@ public class Jeu implements Game{
 		if(commande == Cmd.UP){
 			deplacerHaut(pacman);
 		}
+		
 	}
         
+	
+	public boolean estToucherParFantome(){
+		boolean res = false;
+		int i = 0;
+		while(!res && i<fantomes.size()){
+			Fantome fantome = fantomes.get(i);
+			if(fantome.hit(pacman))
+				res = true;
+			i++;
+		}
+		return res;
+	}
+	
 	/**
 	 * verifier si le jeu est fini
 	 */
 	@Override
 	public boolean isFinished() {
-		boolean fini = false;
-		fini =  (pacman.getHauteur()==laby.getHauteurTresor() && pacman.getLargeur()==laby.getLargeurTresor());
-		return fini;
+		if(estToucherParFantome()){
+			etat = Etat.PERDU;
+			System.out.println("Perdu");
+		}else if((pacman.getHauteur()==laby.getHauteurTresor() && pacman.getLargeur()==laby.getLargeurTresor())){
+			etat = Etat.GAGNER;
+			System.out.println("Gagné");
+		}
+		return (etat == Etat.PERDU || etat == Etat.GAGNER);
 	}
-        
-        
-
 }
