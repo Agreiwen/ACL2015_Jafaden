@@ -17,7 +17,7 @@ public class Pacman extends Personnage{
 	public boolean mort(){
 		return vie==0;
 	}
-
+	
 	@Override
 	public void misAJourHitbox() {
 		hitbox.misAJour(this.getLargeurGraphique(), this.getHauteurGraphique());

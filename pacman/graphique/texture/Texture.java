@@ -10,6 +10,7 @@ public class Texture {
 	public ArrayList<Image> imagesPacman;
 	public Image mur;
 	public Image passage;
+	public Image trappe;
 	public Image tresor;
 	public Image coeur;
 	public Image coeurVide;
@@ -19,6 +20,7 @@ public class Texture {
 		passage = new ImageIcon(this.getClass().getResource("../texture/passage.png")).getImage();
 		tresor = new ImageIcon(this.getClass().getResource("../texture/coffre.png")).getImage();
 		coeur = new ImageIcon(this.getClass().getResource("../texture/coeur.png")).getImage();
+		trappe = new ImageIcon(this.getClass().getResource("../texture/trappe.png")).getImage();
 		coeurVide = new ImageIcon(this.getClass().getResource("../texture/coeur_vide.png")).getImage();
 		imagesPacman = new ArrayList<Image>();
 		ajoutDesImages();
@@ -53,6 +55,10 @@ public class Texture {
 
 	public Image getTextureCaseLibre() {
 		return passage;
+	}
+
+	public Image getTextureTrappe() {
+		return trappe;
 	}
 	
 	public Image getTextureCaseTresor() {

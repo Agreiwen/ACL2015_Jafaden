@@ -1,5 +1,9 @@
 package pacman.carte;
 
+import java.util.ArrayList;
+
+import pacman.personnages.Pacman;
+
 public class Labyrinthe {
 
 	public static final int NB_COLONNE = 20;
@@ -9,6 +13,7 @@ public class Labyrinthe {
 	protected int hauteur;
 	public static int LARGEUR_CASE = 25;
 	public static int HAUTEUR_CASE = 25;
+	protected ArrayList<CaseTrappe> trappes;
 	
 	
 	protected Case[][] tabCases;
@@ -26,6 +31,7 @@ public class Labyrinthe {
 		grille = new int[largeur][hauteur];
 		tabCases = new Case[largeur][hauteur];
 		this.largeur = largeur;
+		this.trappes = new ArrayList<CaseTrappe>();
 		this.hauteur = hauteur;
 	}
 
@@ -131,5 +137,45 @@ public class Labyrinthe {
 	
 	public int getHauteurTresor(){
 		return this.hauteurTresor;
+	}
+	
+	public void addCaseTrappe(Case c){
+		trappes.add((CaseTrappe) c);
+	}
+	
+	public CaseTrappe getDestination(Pacman p){
+		CaseTrappe res = null;
+		boolean trouv = false;
+		int i = 0;
+		while(!trouv && i < trappes.size()){
+			CaseTrappe c = trappes.get(i);
+			if(c.hit(p)){
+				trouv = true;
+				res = c.getDestination();
+			}
+			i++;
+		}
+		return res;
+	}
+	
+	public void linkTrappes(){
+		for(CaseTrappe c : trappes){
+			makeAssociation(c);
+		}
+	}
+	
+	private void makeAssociation(CaseTrappe t){
+		CaseTrappe res = null;
+		boolean trouv = false;
+		int i = 0;
+		while(!trouv && i< trappes.size()){
+			CaseTrappe c = trappes.get(i);
+			if(!c.equals(t)){//si la case en cours n'est pas celle de depart
+				if(c.isAssociation(t)){
+					t.setDestination(c);
+				}
+			}
+			i++;
+		}
 	}
 }
