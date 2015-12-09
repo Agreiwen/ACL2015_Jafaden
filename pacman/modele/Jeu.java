@@ -22,13 +22,16 @@ public class Jeu implements Game{
 	protected Labyrinthe laby;
 	protected Pacman pacman;
 	protected ArrayList<Fantome> fantomes;
-    public enum Etat{ENCOURS,PERDU,GAGNER};
+	protected int timerInvincible;
+	public static int TIMER_INVINCIBLE_START = 20;
+    public enum Etat{ENCOURS,ENCOURS_INVINCIBLE,PERDU,GAGNER};
     private Etat etat = Etat.ENCOURS;
 	
 	public Jeu(Labyrinthe laby, Pacman pacman, String source){
 		this.laby=laby;
 		this.pacman=pacman;
 		this.lireFichier(source);
+		timerInvincible = TIMER_INVINCIBLE_START;
 		this.fantomes = new ArrayList<Fantome>();
 		fantomes.add(new Fantome(100, 150));
 		fantomes.add(new Fantome(200, 100));
@@ -229,12 +232,26 @@ public class Jeu implements Game{
 	 */
 	@Override
 	public boolean isFinished() {
-		if(estToucherParFantome()){
-			etat = Etat.PERDU;
-			System.out.println("Perdu");
-		}else if((pacman.getHauteur()==laby.getHauteurTresor() && pacman.getLargeur()==laby.getLargeurTresor())){
-			etat = Etat.GAGNER;
-			System.out.println("Gagné");
+		if(etat == Etat.ENCOURS){
+			if(estToucherParFantome()){
+				pacman.perdreVie();
+				if(pacman.mort()){
+					etat = Etat.PERDU;
+					System.out.println("Perdu");
+				}else{
+					etat = Etat.ENCOURS_INVINCIBLE;
+					System.out.println("Touch�");
+				}
+			}else if((pacman.getHauteur()==laby.getHauteurTresor() && pacman.getLargeur()==laby.getLargeurTresor())){
+				etat = Etat.GAGNER;
+				System.out.println("Gagné");
+			}
+		}else if(etat == Etat.ENCOURS_INVINCIBLE){
+			timerInvincible--;
+			if(timerInvincible==0){
+				etat = Etat.ENCOURS;
+				timerInvincible = TIMER_INVINCIBLE_START;
+			}
 		}
 		return (etat == Etat.PERDU || etat == Etat.GAGNER);
 	}

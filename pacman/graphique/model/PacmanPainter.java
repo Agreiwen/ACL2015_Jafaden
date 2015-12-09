@@ -31,12 +31,19 @@ public class PacmanPainter extends JComponent implements GamePainter {
 	 */
 	public static final int WIDTH = 500;
 	public static final int HEIGHT = 500;
+	
+	public static final int X_COEUR1 = 350;
+	public static final int X_COEUR2 = 385;
+	public static final int X_COEUR3 = 420;
+	public static final int Y_COEURS = 0;
 	public Pacman pc;
 	public Labyrinthe laby;
 	public Jeu jeu;
 	public Texture texture;
 	public int numeroImagePacman = 0;
 	public int numeroImageFantome = 16;
+	
+	
 
 	/**
 	 * appelle constructeur parent
@@ -94,6 +101,18 @@ public class PacmanPainter extends JComponent implements GamePainter {
 			Graphics2D fantome = (Graphics2D) im.getGraphics();
 			fantome.drawImage(texture.getTexture(17), jeu.getFantomes().get(i).getLargeur(), jeu.getFantomes().get(i).getHauteur(), 25, 25, this);
 		}
+		Graphics2D vie = (Graphics2D) im.getGraphics();
+		printVie(vie, texture);
+	}
+	
+	private void printVie(Graphics2D vie,Texture t){
+		Image textureCoeur1 = pc.getVie()<1?t.getTextureCoeurVide():t.getTextureCoeur();
+		Image textureCoeur2 = pc.getVie()<2?t.getTextureCoeurVide():t.getTextureCoeur();
+		Image textureCoeur3 = pc.getVie()<3?t.getTextureCoeurVide():t.getTextureCoeur();
+		
+		vie.drawImage(textureCoeur1,X_COEUR1,  Y_COEURS, 25, 25, this);
+		vie.drawImage(textureCoeur2,X_COEUR2,  Y_COEURS, 25, 25, this);
+		vie.drawImage(textureCoeur3,X_COEUR3,  Y_COEURS, 25, 25, this);
 	}
 	
 	public Image choixImagePacman(int i){

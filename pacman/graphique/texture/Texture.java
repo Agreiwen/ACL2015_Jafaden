@@ -11,11 +11,15 @@ public class Texture {
 	public Image mur;
 	public Image passage;
 	public Image tresor;
+	public Image coeur;
+	public Image coeurVide;
 	
 	public Texture(){
 		mur = new ImageIcon(this.getClass().getResource("../texture/mur.png")).getImage();
 		passage = new ImageIcon(this.getClass().getResource("../texture/passage.png")).getImage();
 		tresor = new ImageIcon(this.getClass().getResource("../texture/coffre.png")).getImage();
+		coeur = new ImageIcon(this.getClass().getResource("../texture/coeur.png")).getImage();
+		coeurVide = new ImageIcon(this.getClass().getResource("../texture/coeur_vide.png")).getImage();
 		imagesPacman = new ArrayList<Image>();
 		ajoutDesImages();
 	}
@@ -37,6 +41,14 @@ public class Texture {
 	
 	public Image getTextureMur(){
 		return mur;
+	}
+	
+	public Image getTextureCoeur(){
+		return coeur;
+	}
+	
+	public Image getTextureCoeurVide(){
+		return coeurVide;
 	}
 
 	public Image getTextureCaseLibre() {
