@@ -9,6 +9,8 @@ import javax.swing.JComponent;
 
 import pacman.carte.Case;
 import pacman.carte.CaseMur;
+import pacman.carte.CaseLibre;
+import pacman.carte.CaseTrappe;
 import pacman.carte.CaseTresor;
 import pacman.carte.Labyrinthe;
 import pacman.graphique.engine.GamePainter;
@@ -22,6 +24,7 @@ import pacman.personnages.Pacman;
  * afficheur graphique pour le game
  * 
  */
+@SuppressWarnings("serial")
 public class PacmanPainter extends JComponent implements GamePainter {
 
 	/**
@@ -29,10 +32,19 @@ public class PacmanPainter extends JComponent implements GamePainter {
 	 */
 	public static final int WIDTH = 500;
 	public static final int HEIGHT = 500;
-	Pacman pc;
-	Labyrinthe laby;
-	Jeu jeu;
-	Texture texture;
+	
+	public static final int X_COEUR1 = 350;
+	public static final int X_COEUR2 = 385;
+	public static final int X_COEUR3 = 420;
+	public static final int Y_COEURS = 0;
+	public Pacman pc;
+	public Labyrinthe laby;
+	public Jeu jeu;
+	public Texture texture;
+	public int numeroImagePacman = 0;
+	public int numeroImageFantome = 16;
+	
+	
 
 	/**
 	 * appelle constructeur parent
@@ -55,7 +67,11 @@ public class PacmanPainter extends JComponent implements GamePainter {
 	 */
 	@Override
 	public void draw(BufferedImage im) {
-		
+		if(numeroImagePacman < 3){
+			numeroImagePacman++;
+		}else{
+			numeroImagePacman = 0;
+		}
 		Graphics2D mur = (Graphics2D) im.getGraphics();
 		mur.setColor(Color.black);
 		Graphics2D tresor = (Graphics2D) im.getGraphics();
@@ -64,38 +80,63 @@ public class PacmanPainter extends JComponent implements GamePainter {
 			for (int j = 0; j < laby.getHauteurTabCase(); j++) {
 				Case c = laby.getCase(i, j);
 				if(c instanceof CaseMur){
-					mur.fillRect(i*Labyrinthe.LARGEUR_CASE, j*Labyrinthe.HAUTEUR_CASE, 25, 25);
+					mur.drawImage(texture.getTextureMur(),i*Labyrinthe.LARGEUR_CASE,  j*Labyrinthe.HAUTEUR_CASE, 25, 25, this);
+					//mur.fillRect(i*Labyrinthe.LARGEUR_CASE, j*Labyrinthe.HAUTEUR_CASE, 25, 25);
+				}
+				if(c instanceof CaseLibre){
+					mur.drawImage(texture.getTextureCaseLibre(),i*Labyrinthe.LARGEUR_CASE,  j*Labyrinthe.HAUTEUR_CASE, 25, 25, this);
+				}
+				if(c instanceof CaseTrappe){
+					mur.drawImage(texture.getTextureTrappe(),i*Labyrinthe.LARGEUR_CASE,  j*Labyrinthe.HAUTEUR_CASE, 25, 25, this);
 				}
 				if(c instanceof CaseTresor){
-					tresor.fillRect(i*Labyrinthe.LARGEUR_CASE, j*Labyrinthe.HAUTEUR_CASE, 25, 25);
+//					tresor.fillRect(i*Labyrinthe.LARGEUR_CASE, j*Labyrinthe.HAUTEUR_CASE, 25, 25);
+					tresor.drawImage(texture.getTextureCaseLibre(),i*Labyrinthe.LARGEUR_CASE,  j*Labyrinthe.HAUTEUR_CASE, 25, 25, this);
+					tresor.drawImage(texture.getTextureCaseTresor(),i*Labyrinthe.LARGEUR_CASE,  j*Labyrinthe.HAUTEUR_CASE, 25, 25, this);
 				}
 			}
 		}
 		
 		Graphics2D pacman = (Graphics2D) im.getGraphics();
-	    pacman.drawImage(choixImage(), pc.getLargeurGraphique(), pc.getHauteurGraphique(), 25, 25, this);
+	    pacman.drawImage(choixImagePacman(numeroImagePacman), pc.getLargeurGraphique(), pc.getHauteurGraphique(), 25, 25, this);
 
+	    // TODO une texture par fantome a faire et donc une methode choixImageFantome quand elles seront pretes.
 		for (int i = 0; i < jeu.getFantomes().size(); i++) {
 			Graphics2D fantome = (Graphics2D) im.getGraphics();
-			fantome.setColor(Color.red);
-			fantome.fillOval(jeu.getFantomes().get(i).getLargeur(),jeu.getFantomes().get(i).getHauteur(),25,25);
+			fantome.drawImage(texture.getTexture(17), jeu.getFantomes().get(i).getLargeur(), jeu.getFantomes().get(i).getHauteur(), 25, 25, this);
 		}
+		Graphics2D vie = (Graphics2D) im.getGraphics();
+		printVie(vie, texture);
 	}
 	
-	public Image choixImage(){
+	private void printVie(Graphics2D vie,Texture t){
+		Image textureCoeur1 = pc.getVie()<1?t.getTextureCoeurVide():t.getTextureCoeur();
+		Image textureCoeur2 = pc.getVie()<2?t.getTextureCoeurVide():t.getTextureCoeur();
+		Image textureCoeur3 = pc.getVie()<3?t.getTextureCoeurVide():t.getTextureCoeur();
+		
+		vie.drawImage(textureCoeur1,X_COEUR1,  Y_COEURS, 25, 25, this);
+		vie.drawImage(textureCoeur2,X_COEUR2,  Y_COEURS, 25, 25, this);
+		vie.drawImage(textureCoeur3,X_COEUR3,  Y_COEURS, 25, 25, this);
+	}
+	
+	public Image choixImagePacman(int i){
 		Image im = texture.getTexture(0);
 		switch(pc.getDirection()){
 		case DROITE :
-			im = texture.getTexture(0);
+			// image 1 a 4
+			im = texture.getTexture(0+i);
 			break;
 		case GAUCHE :
-			im = texture.getTexture(1);
+			// image 5 a 8
+			im = texture.getTexture(4+i);
 			break;
 		case BAS :
-			im = texture.getTexture(2);
+			// image 9 a 12
+			im = texture.getTexture(8+i);
 			break;
 		case HAUT :
-			im = texture.getTexture(3);
+			// image 13 a 16
+			im = texture.getTexture(12+i);
 			break;
 		}
 		return im;

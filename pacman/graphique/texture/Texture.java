@@ -7,27 +7,61 @@ import javax.swing.ImageIcon;
 
 public class Texture {
 	
-	public ArrayList<Image> images;
-	Image fantome;
+	public ArrayList<Image> imagesPacman;
+	public Image mur;
+	public Image passage;
+	public Image trappe;
+	public Image tresor;
+	public Image coeur;
+	public Image coeurVide;
 	
 	public Texture(){
-		images = new ArrayList<Image>();
+		mur = new ImageIcon(this.getClass().getResource("../texture/mur.png")).getImage();
+		passage = new ImageIcon(this.getClass().getResource("../texture/passage.png")).getImage();
+		tresor = new ImageIcon(this.getClass().getResource("../texture/coffre.png")).getImage();
+		coeur = new ImageIcon(this.getClass().getResource("../texture/coeur.png")).getImage();
+		trappe = new ImageIcon(this.getClass().getResource("../texture/trappe.png")).getImage();
+		coeurVide = new ImageIcon(this.getClass().getResource("../texture/coeur_vide.png")).getImage();
+		imagesPacman = new ArrayList<Image>();
 		ajoutDesImages();
 	}
 	
 	public void ajoutDesImages(){
-		Image pacman0 = new ImageIcon(this.getClass().getResource("../texture/pacman0.png")).getImage();
-		Image pacman1 = new ImageIcon(this.getClass().getResource("../texture/pacman1.png")).getImage();
-		Image pacman2 = new ImageIcon(this.getClass().getResource("../texture/pacman2.png")).getImage();
-		Image pacman3 = new ImageIcon(this.getClass().getResource("../texture/pacman3.png")).getImage();
-		images.add(pacman0);
-		images.add(pacman1);
-		images.add(pacman2);
-		images.add(pacman3);
-		images.add(fantome);
+		for(int i=1; i<=16; i++){
+			Image pacman = new ImageIcon(this.getClass().getResource("../texture/pacman"+i+".png")).getImage();
+			imagesPacman.add(pacman);
+		}
+		for(int i=1; i<=5; i++){
+			Image fantome = new ImageIcon(this.getClass().getResource("../texture/fantome"+i+".png")).getImage();
+			imagesPacman.add(fantome);
+		}
 	}
 	
 	public Image getTexture(int i){
-		return images.get(i);
+		return imagesPacman.get(i);
+	}
+	
+	public Image getTextureMur(){
+		return mur;
+	}
+	
+	public Image getTextureCoeur(){
+		return coeur;
+	}
+	
+	public Image getTextureCoeurVide(){
+		return coeurVide;
+	}
+
+	public Image getTextureCaseLibre() {
+		return passage;
+	}
+
+	public Image getTextureTrappe() {
+		return trappe;
+	}
+	
+	public Image getTextureCaseTresor() {
+		return tresor;
 	}
 }

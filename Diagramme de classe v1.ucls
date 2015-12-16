@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.1.9" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
-  realizations="true" associations="true" dependencies="false" nesting-relationships="false" router="FAN">  
+<class-diagram version="1.1.9" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="false" router="FAN">  
   <interface id="1" language="java" name="pacman.graphique.engine.GamePainter" project="Pacman" 
     file="/Pacman/src/pacman/graphique/engine/GamePainter.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2538" y="1205"/>    
@@ -262,140 +262,188 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="30">    
+  <realization id="30">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <association id="31">    
     <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="31" name="gameController"/>      
-      <multiplicity id="32" minimum="0" maximum="1"/>    
+      <attribute id="32" name="game">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="33" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="33">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="34" name="panel"/>      
-      <multiplicity id="35" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="36">    
+  <association id="34">    
     <bendpoint x="2791" y="526"/>    
     <bendpoint x="2791" y="925"/>    
     <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="37" name="gamePainter"/>      
-      <multiplicity id="38" minimum="0" maximum="1"/>    
+      <attribute id="35" name="gamePainter">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="36" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="39">    
-    <end type="SOURCE" refId="27" navigable="false">      
-      <attribute id="40" name="commandeEnCours"/>      
-      <multiplicity id="41" minimum="0" maximum="1"/>    
+  <association id="37">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="38" name="panel">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="39" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="42">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="9"/>  
-  </realization>  
+  <association id="40">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="41" name="pc">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="42" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <realization id="43">    
     <end type="SOURCE" refId="27"/>    
     <end type="TARGET" refId="5"/>  
   </realization>  
   <association id="44">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="45" name="painter"/>      
-      <multiplicity id="46" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="45" name="gui">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="46" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="47">    
     <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="48" name="tabCases"/>      
-      <multiplicity id="49" minimum="0" maximum="2147483647"/>    
+      <attribute id="48" name="tabCases">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="49" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="19" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="50">    
-    <end type="SOURCE" refId="26"/>    
-    <end type="TARGET" refId="19"/>  
-  </generalization>  
-  <generalization id="51">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="25"/>  
-  </generalization>  
-  <association id="52">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="53" name="pc"/>      
-      <multiplicity id="54" minimum="0" maximum="1"/>    
+  <association id="50">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="51" name="painter">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="52" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="55">    
+  <realization id="53">    
     <bendpoint x="2269" y="526"/>    
     <bendpoint x="2269" y="925"/>    
     <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="1"/>  
   </realization>  
-  <association id="56">    
+  <association id="54">    
     <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="57" name="game"/>      
-      <multiplicity id="58" minimum="0" maximum="1"/>    
+      <attribute id="55" name="gameController">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="56" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="59">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="60" name="gui"/>      
-      <multiplicity id="61" minimum="0" maximum="1"/>    
+  <association id="57">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="58" name="laby">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="59" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="62">    
+  <association id="60">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="61" name="laby">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="62" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="63">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="25"/>  
+  </generalization>  
+  <generalization id="64">    
     <end type="SOURCE" refId="16"/>    
     <end type="TARGET" refId="19"/>  
   </generalization>  
-  <generalization id="63">    
-    <end type="SOURCE" refId="21"/>    
+  <realization id="65">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <generalization id="66">    
+    <end type="SOURCE" refId="15"/>    
     <end type="TARGET" refId="26"/>  
   </generalization>  
-  <association id="64">    
+  <generalization id="67">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <association id="68">    
     <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="65" name="pacman"/>      
-      <multiplicity id="66" minimum="0" maximum="1"/>    
+      <attribute id="69" name="pacman">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="70" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="67">    
-    <end type="SOURCE" refId="15"/>    
+  <generalization id="71">    
+    <end type="SOURCE" refId="21"/>    
     <end type="TARGET" refId="26"/>  
   </generalization>  
-  <realization id="68">    
-    <end type="SOURCE" refId="28"/>    
-    <end type="TARGET" refId="9"/>  
-  </realization>  
-  <association id="69">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="70" name="laby"/>      
-      <multiplicity id="71" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <association id="72">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="73" name="laby"/>      
-      <multiplicity id="74" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="73" name="commandeEnCours">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="74" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 

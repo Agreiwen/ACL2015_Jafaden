@@ -8,6 +8,7 @@ import java.util.Scanner;
 import pacman.carte.Case;
 import pacman.carte.CaseLibre;
 import pacman.carte.CaseMur;
+import pacman.carte.CaseTrappe;
 import pacman.carte.CaseTresor;
 import pacman.carte.Labyrinthe;
 import pacman.graphique.engine.Cmd;
@@ -15,17 +16,23 @@ import pacman.graphique.engine.Game;
 import pacman.personnages.Fantome;
 import pacman.personnages.Pacman;
 import pacman.personnages.Personnage;
+import pacman.personnages.Personnage.Direction;
 
 public class Jeu implements Game{
 	
 	protected Labyrinthe laby;
 	protected Pacman pacman;
 	protected ArrayList<Fantome> fantomes;
+	protected int timerInvincible;
+	public static int TIMER_INVINCIBLE_START = 20;
+    public enum Etat{ENCOURS,ENCOURS_INVINCIBLE,PERDU,GAGNER};
+    private Etat etat = Etat.ENCOURS;
 	
 	public Jeu(Labyrinthe laby, Pacman pacman, String source){
 		this.laby=laby;
 		this.pacman=pacman;
 		this.lireFichier(source);
+		timerInvincible = TIMER_INVINCIBLE_START;
 		this.fantomes = new ArrayList<Fantome>();
 		fantomes.add(new Fantome(100, 150));
 		fantomes.add(new Fantome(200, 100));
@@ -34,14 +41,25 @@ public class Jeu implements Game{
 	public ArrayList<Fantome> getFantomes() {
 		return fantomes;
 	}
+	
+
+	
+	
+//	CaseTrappe c1 = new CaseTrappe(25, 0);
+//	CaseTrappe c2 = new CaseTrappe(450, 25);
+//	c1.setDestination(c2);
+//	c2.setDestination(c1);
+//	trappes.add(c1);
+//	trappes.add(c2);
 
 	/**
 	 * remplit le tableau de case, en instanciant diffï¿½rents types selon le 
 	 *  tableau d'entiers lu dans le fichier source. 
 	 */
+	@SuppressWarnings("static-access")
 	private void lireFichier(String source) {
 		Case[][] tabCases = new Case[laby.NB_LIGNE][laby.NB_COLONNE];
-		int[][] tab = new int[laby.NB_LIGNE][laby.NB_COLONNE];
+		char[][] tab = new char[laby.NB_LIGNE][laby.NB_COLONNE];
 		Scanner sc = null;
         try {
             try {
@@ -53,8 +71,7 @@ public class Jeu implements Game{
                     	if(i == 0 && j == 20){
                         	break;
                         }
-                    	String tmp = String.valueOf(c);
-                        tab[i][j] = Integer.parseInt(tmp);
+                        tab[i][j] = c;
                         i++;
                         if(i == 20){
                         	j++;
@@ -77,25 +94,28 @@ public class Jeu implements Game{
         for (int i = 0; i < tab.length; i++) {
 			for (int j = 0; j < tab[0].length; j++) {
 				Case c = null;
-				switch(tab[i][j]){
-				case 0:
+				char lachar = tab[i][j];
+				switch(lachar){
+				case '0':
 					c = new CaseLibre(i,j);
 					break;
-				case 1:
+				case '1':
 					c = new CaseMur(i,j);
 					break;
-				case 2:
+				case '2':
 					c = new CaseTresor(i,j);
 					laby.setPosTresor(i, j);
 					break;
-				default:
-					c = new CaseLibre(i,j);
+				default://il s'agit d'une lettre
+					c = new CaseTrappe(i,j,lachar);
+					laby.addCaseTrappe(c);
 					break;
 				}
 				tabCases[i][j]=c;
 			}
 		}
         laby.setGrilleCases(tabCases);
+        laby.linkTrappes();
 //        StringBuilder sb = new StringBuilder();
 //        for (int i = 0; i < tab.length; i++) {
 //			for (int j = 0; j < tab[0].length; j++) {
@@ -141,6 +161,9 @@ public class Jeu implements Game{
 	 * Methodes de deplacement d'un personnage
 	 */
 	
+	public Etat getEtat(){
+		return etat;
+	}
 	
 	
 	/* PROBLEME DE PROPOTIONS Tab/Laby graphique */
@@ -201,18 +224,59 @@ public class Jeu implements Game{
 		if(commande == Cmd.UP){
 			deplacerHaut(pacman);
 		}
+		if(!pacman.isJustTeleported())
+			checkTrappe();
 	}
         
+	
+	private void checkTrappe() {
+		CaseTrappe dest = laby.getDestination(pacman);
+		if(dest != null){
+			pacman.setHauteur(dest.getHauteur());
+			pacman.setLargeur(dest.getLargeur());
+			pacman.misAJourHitbox();
+			pacman.setJustTeleported(true);
+		}
+	}
+
+	public boolean estToucherParFantome(){
+		boolean res = false;
+		int i = 0;
+		while(!res && i<fantomes.size()){
+			Fantome fantome = fantomes.get(i);
+			if(fantome.hit(pacman))
+				res = true;
+			i++;
+		}
+		return res;
+	}
+	
 	/**
 	 * verifier si le jeu est fini
 	 */
 	@Override
 	public boolean isFinished() {
-		boolean fini = false;
-		fini =  (pacman.getHauteur()==laby.getHauteurTresor() && pacman.getLargeur()==laby.getLargeurTresor());
-		return fini;
+		if(etat == Etat.ENCOURS){
+			if(estToucherParFantome()){
+				pacman.perdreVie();
+				if(pacman.mort()){
+					etat = Etat.PERDU;
+					System.out.println("Perdu");
+				}else{
+					etat = Etat.ENCOURS_INVINCIBLE;
+					System.out.println("Touché");
+				}
+			}else if((pacman.getHauteur()==laby.getHauteurTresor() && pacman.getLargeur()==laby.getLargeurTresor())){
+				etat = Etat.GAGNER;
+				System.out.println("GagnÃ©");
+			}
+		}else if(etat == Etat.ENCOURS_INVINCIBLE){
+			timerInvincible--;
+			if(timerInvincible==0){
+				etat = Etat.ENCOURS;
+				timerInvincible = TIMER_INVINCIBLE_START;
+			}
+		}
+		return (etat == Etat.PERDU || etat == Etat.GAGNER);
 	}
-        
-        
-
 }

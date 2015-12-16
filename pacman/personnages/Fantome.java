@@ -7,47 +7,26 @@ public class Fantome extends Personnage{
 	}
 
 	public void deplacer(Pacman p){
-		int haut = distanceManhatan(this.largeur, this.hauteur-1, p.largeur*25, p.hauteur*25);
-		int bas = distanceManhatan(this.largeur, this.hauteur+1, p.largeur*25, p.hauteur*25);
-		int droite = distanceManhatan(this.largeur+1, this.hauteur, p.largeur*25, p.hauteur*25);
-		int gauche = distanceManhatan(this.largeur-1, this.hauteur, p.largeur*25, p.hauteur*25);
-		String min = getMin(haut, bas, droite, gauche);
-		switch(min){
-			case "haut":
-				this.deplacerHaut();
-				break;
-			case "bas":
-				this.deplacerBas();
-				break;
-			case "gauche":
-				this.deplacerGauche();
-				break;
-			case "droite":
+		int diffX = this.largeur - p.getLargeurGraphique();
+		int diffY = this.hauteur - p.getHauteurGraphique();
+		if(Math.abs(diffX)>Math.abs(diffY)){//largeur
+			if(diffX<0){// p a droite
 				this.deplacerDroite();
-				break;
-		
+			}else{// p a gauche
+				this.deplacerGauche();
+			}
+		}else {//hauteur
+			if(diffY<0){// p en bas
+				this.deplacerBas();
+			}else{// p en haut
+				this.deplacerHaut();
+			}
 		}
 	}
 
-	private String getMin(int haut, int bas, int droite, int gauche) {
-		String min = "haut";
-		int tmp = haut;
-		if(bas < tmp){
-			min = "bas";
-			tmp = bas;
-		}
-		if(droite < tmp){
-			min = "droite";
-			tmp = droite;
-		}
-		if(gauche < tmp){
-			min = "gauche";
-			tmp = gauche;
-		}
-		return min;
-	}
-
-	private int distanceManhatan(int largeur, int hauteur, int largeur2, int hauteur2) {
-		return Math.abs(largeur-largeur2) + Math.abs(hauteur-hauteur2);
+	@Override
+	public void misAJourHitbox() {
+		// TODO Auto-generated method stub
+		hitbox.misAJour(largeur, hauteur);
 	}
 }

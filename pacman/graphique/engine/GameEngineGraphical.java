@@ -65,7 +65,7 @@ public class GameEngineGraphical {
 			// met en attente
 			Thread.sleep(100);
 		}
-		System.out.println("Vous avez gagné !!");
+		this.gui.paint();
 	}
 
 }
