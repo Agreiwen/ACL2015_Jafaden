@@ -1,0 +1,5 @@
+﻿Projet Pacman (ACL2015_Jafaden) :
+
+                    		    Fleche du haut : Aller en haut 
+Fleche de gauche : Aller à gauche                         	     Fleche de droite : Aller à droite
+                    		    Fleche du bas : Aller en bas
