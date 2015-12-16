@@ -87,27 +87,6 @@ public class Labyrinthe {
 		return hauteur;
 	}
 	
-	
-	public void remplirTabCases(){
-		for (int i = 0; i < grille.length; i++) {
-			for (int j = 0; j < grille[0].length; j++) {
-				Case c = null;
-				switch(grille[i][j]){
-				case 0:
-					c = new CaseLibre(i,j);
-					break;
-				case 1:
-					c = new CaseMur(i,j);
-					break;
-				default:
-					c = new CaseLibre(i,j);
-					break;
-				}
-				tabCases[i][j]=c;
-			}
-		}
-	}
-	
 	/**
 	 * 
 	 * @param largeur
