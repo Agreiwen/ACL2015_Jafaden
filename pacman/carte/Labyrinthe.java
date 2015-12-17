@@ -3,6 +3,7 @@ package pacman.carte;
 import java.util.ArrayList;
 
 import pacman.personnages.Pacman;
+import pacman.personnages.Personnage;
 
 public class Labyrinthe {
 
@@ -160,5 +161,13 @@ public class Labyrinthe {
 			}
 			i++;
 		}
+	}
+	
+	public boolean isColle(Personnage p){
+			for(int i=0;i<colles.size();i++){
+				CaseColle c = colles.get(i);
+				if(c.hit(p))return true;
+			}
+			return false;
 	}
 }
