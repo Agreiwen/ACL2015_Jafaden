@@ -67,7 +67,7 @@ public class Texture {
 		return tresor;
 	}
 	
-	public Image getColle(){
+	public Image getTextureCaseColle(){
 		return colle;
 	}
 }

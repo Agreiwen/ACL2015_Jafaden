@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.JComponent;
 
 import pacman.carte.Case;
+import pacman.carte.CaseColle;
 import pacman.carte.CaseMur;
 import pacman.carte.CaseLibre;
 import pacman.carte.CaseTrappe;
@@ -76,6 +77,8 @@ public class PacmanPainter extends JComponent implements GamePainter {
 		mur.setColor(Color.black);
 		Graphics2D tresor = (Graphics2D) im.getGraphics();
 		tresor.setColor(Color.yellow);
+		Graphics2D colle = (Graphics2D) im.getGraphics();
+		colle.setColor(Color.green);
 		for (int i = 0; i < laby.getLargeurTabCase(); i++) {
 			for (int j = 0; j < laby.getHauteurTabCase(); j++) {
 				Case c = laby.getCase(i, j);
@@ -93,6 +96,10 @@ public class PacmanPainter extends JComponent implements GamePainter {
 //					tresor.fillRect(i*Labyrinthe.LARGEUR_CASE, j*Labyrinthe.HAUTEUR_CASE, 25, 25);
 					tresor.drawImage(texture.getTextureCaseLibre(),i*Labyrinthe.LARGEUR_CASE,  j*Labyrinthe.HAUTEUR_CASE, 25, 25, this);
 					tresor.drawImage(texture.getTextureCaseTresor(),i*Labyrinthe.LARGEUR_CASE,  j*Labyrinthe.HAUTEUR_CASE, 25, 25, this);
+				}
+				if(c instanceof CaseColle){
+					colle.drawImage(texture.getTextureCaseColle(),i*Labyrinthe.LARGEUR_CASE, j*Labyrinthe.HAUTEUR_CASE,25,25,this);
+					
 				}
 			}
 		}
