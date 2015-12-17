@@ -106,5 +106,9 @@ public abstract class Personnage {
 		this.tempsColle = START_TEMPS_COLLE;
 	}
 	
+	public void setColle(boolean b){
+		this.isColle = b;
+	}
+	
 	public abstract void misAJourHitbox();
 }
