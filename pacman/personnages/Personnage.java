@@ -10,6 +10,9 @@ public abstract class Personnage {
     public enum Direction{GAUCHE,DROITE,HAUT,BAS};
     private Direction direction = Direction.DROITE;
 	public boolean justTeleported = false;
+	public int tempsColle = 20;
+	public static int START_TEMPS_COLLE = 20;
+	public boolean isColle = false;
 
 	public Personnage(int largeur, int hauteur){
 		this.largeur=largeur;
@@ -89,6 +92,18 @@ public abstract class Personnage {
 
 	public boolean hit(Personnage p) {
 		return this.hitbox.intersects(p.getHitbox());
+	}
+	
+	public boolean isColle(){
+		return this.isColle;
+	}
+	
+	public void decrementeTempsColle(){
+		this.tempsColle -= 1;
+	}
+	
+	public void reInitTempsColle(){
+		this.tempsColle = START_TEMPS_COLLE;
 	}
 	
 	public abstract void misAJourHitbox();
