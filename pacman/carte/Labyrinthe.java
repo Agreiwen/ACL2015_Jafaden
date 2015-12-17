@@ -14,6 +14,7 @@ public class Labyrinthe {
 	public static int LARGEUR_CASE = 25;
 	public static int HAUTEUR_CASE = 25;
 	protected ArrayList<CaseTrappe> trappes;
+	protected ArrayList<CaseColle> colles;
 	
 	
 	protected Case[][] tabCases;
@@ -122,6 +123,9 @@ public class Labyrinthe {
 		trappes.add((CaseTrappe) c);
 	}
 	
+	public void addCaseColle(Case c){
+		colles.add((CaseColle) c);
+	}
 	public CaseTrappe getDestination(Pacman p){
 		CaseTrappe res = null;
 		boolean trouv = false;

@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import pacman.carte.CaseColle;
 import pacman.carte.Case;
 import pacman.carte.CaseLibre;
 import pacman.carte.CaseMur;
@@ -23,6 +24,7 @@ public class Jeu implements Game{
 	protected Labyrinthe laby;
 	protected Pacman pacman;
 	protected ArrayList<Fantome> fantomes;
+	
 	protected int timerInvincible;
 	public static int TIMER_INVINCIBLE_START = 20;
     public enum Etat{ENCOURS,ENCOURS_INVINCIBLE,PERDU,GAGNER};
@@ -105,6 +107,10 @@ public class Jeu implements Game{
 				case '2':
 					c = new CaseTresor(i,j);
 					laby.setPosTresor(i, j);
+					break;
+				case '3':
+					c = new CaseColle(i,j);
+					laby.addCaseColle(c);
 					break;
 				default://il s'agit d'une lettre
 					c = new CaseTrappe(i,j,lachar);
