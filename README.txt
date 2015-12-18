@@ -1,4 +1,13 @@
-Utilisation des JARs :
+Utilisation du ant
+
+build.xml a 4 target:
+
+build : qui compile le projet et les tests
+run : qui exécute le projet
+test : qui exécute les tests
+run_all : qui compile le projet et exécute les tests et le projet
+
+Utilisation des JARs (nous avons constaté des problèmes d'éxécution sur linux):
 
 Pour voir les différentes versions de notre application, il vous suffit de parcourir les 4 dossiers : sprint1, sprint2, sprint3 et sprint4.
 A l'intérieur de ces dossiers, vous trouvez un jar, et pour les sprints 3 et 4, un dossier laby. A l'interieur de ce dossier vous trouvez un fichier
