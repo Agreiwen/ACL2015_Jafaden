@@ -56,7 +56,7 @@ public class Labyrinthe {
 	}
 
 	/**
-	 * Teste si une position dans le labyrinthe est disponible, pour pouvoir s'y déplacer
+	 * Teste si une position dans le labyrinthe est disponible, pour pouvoir s'y deplacer
 	 * @param largeur
 	 * @param hauteur 
 	 * @return 

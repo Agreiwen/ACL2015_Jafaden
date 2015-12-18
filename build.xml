@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Pacman" default="run" basedir=".">
+	<property name="src.dir" location="."/>
+	<property name="bin.dir" location="./bin"/>
+	<property name="jar.dir" location="./jar"/>
+    <property name="jar.file" value="${jar.dir}/pacman.jar"/>
+    <property name="mainclass" value="pacman.graphique.start.Main"/>
+    <property name="testclass" value="pacman.tests.AllTests"/>
+    <property name="image.dir" value="pacman/graphique/texture/"/>
+    <property name="imagebin.dir" value="bin/pacman/graphique/texture/"/>
+	<property name="classpath" location="."/>
+
+	<!-- compile le projet -->
+	<target name="build">
+	    <mkdir dir="${bin.dir}"/>
+	    <javac includeantruntime="false" 
+	        srcdir="${src.dir}"
+	        destdir="${bin.dir}"
+	        classpath="junit4.jar"
+	     />
+		<copy todir="${imagebin.dir}">
+		    <fileset dir="${image.dir}">
+		      <exclude name="Texture.java"/>
+		    </fileset>
+	  	</copy>
+	  	<mkdir dir="${bin.dir}/src"/>
+	  	<copy file="labyFilePacman.txt" todir="${bin.dir}/src"/>
+	  	<copy file="helpFilePacman.txt" todir="${bin.dir}/src"/>
+	</target>
+	
+	
+	<!-- execute le projet -->
+	<target name="run">
+	   <java classname="${mainclass}" dir="bin" fork="true">
+         <classpath>
+           <pathelement path="bin/"/>
+         </classpath>
+       </java>
+	</target>
+	
+	<!-- execute les tests -->
+	<target name="test">
+	  	<java classname="pacman.tests.TestRunner" dir="bin" fork="true">
+         <classpath>
+           <pathelement path="bin/"/>
+           <pathelement path="junit4.jar"/>
+         </classpath>
+       	</java>
+	</target>
+	
+	<!-- compile le projet, execute les tests et le projet -->
+	<target name="run_all">
+	    <antcall target="build"/>
+	    <antcall target="test"/>
+	    <antcall target="run"/>
+	</target>
+</project>

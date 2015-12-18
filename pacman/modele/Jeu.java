@@ -268,13 +268,14 @@ public class Jeu implements Game{
 				if(pacman.mort()){
 					etat = Etat.PERDU;
 					System.out.println("Perdu");
+					System.exit(0);
 				}else{
 					etat = Etat.ENCOURS_INVINCIBLE;
-					System.out.println("Touché");
 				}
 			}else if((pacman.getHauteur()==laby.getHauteurTresor() && pacman.getLargeur()==laby.getLargeurTresor())){
 				etat = Etat.GAGNER;
-				System.out.println("GagnÃ©");
+				System.out.println("Victoire");
+				System.exit(0);
 			}
 		}else if(etat == Etat.ENCOURS_INVINCIBLE){
 			timerInvincible--;
